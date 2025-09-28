@@ -1,6 +1,7 @@
 import { useState } from "react";
-import CloseButton from "./CloseButton";
-import Button from "./Button";
+import CloseButton from "./general/CloseButton";
+import Button from "./general/Button";
+import Loader from "./general/Loader";
 
 export default function AskAI() {
   const [q, setQ] = useState("");
@@ -51,7 +52,7 @@ export default function AskAI() {
   }
 
   return (
-    <div className="mx-auto max-w-screen-xl px-8 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-screen-xl px-8 sm:px-6 lg:px-8">
       {/* Answer / Error */}
       <div className="mx-auto max-w-xl bg-white rounded-md shadow-lg">
         {err ? (
@@ -61,7 +62,9 @@ export default function AskAI() {
         ) : (
           <div className="relative rounded border border-gray-200 bg-white p-4 text-gray-900 min-h-[82px]">
             {loading ? (
-              <>...</>
+              <div className="flex items-center justify-center h-full">
+                <Loader />
+              </div>
             ) : a ? (
               <>
                 {a}
@@ -133,6 +136,6 @@ export default function AskAI() {
           </Button>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

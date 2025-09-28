@@ -1,32 +1,40 @@
 "use client";
 
+import Separator from "@/components/general/Separator";
+
+// Sections
 import About from "@/components/About";
 import ContactMe from "@/components/ContactMe";
-import GenAISearch from "@/components/GenaiSearch";
-import Separator from "@/components/Separator";
+import GenAISearch from "@/components/AskAI";
 import TopSection from "@/components/TopSection";
 
 export default function Home() {
   return (
     <>
-      <TopSection />
+      <div id="top">
+        <TopSection />
+      </div>
 
-      <Separator text="About" />
+      <div id="about">
+        <Separator text="About" />
+        <About />
+      </div>
 
-      <About />
+      <div id="ask-ai">
+        <Separator text="Ask AI about Anirudh" />
+        <GenAISearch />
+      </div>
 
-      <Separator text="Ask AI about Anirudh" />
+      <div id="contact">
+        <Separator text="Contact Me" />
+        <ContactMe />
+      </div>
 
-      <GenAISearch />
-
-      <Separator text="Contact Me" />
-
-      <ContactMe />
-
-      <Separator text="Socials" />
-
-      <div className="flex justify-center text-center text-gray-700 dark:text-gray-200 px-8 sm:px-6 lg:px-8 pb-8 text-lg">
-        Thank you for scrolling and learning about me.
+      <div id="thank-you">
+        <Separator text="Thank you!" />
+        <div className="flex justify-center text-center text-gray-700 dark:text-gray-200 px-8 sm:px-6 lg:px-8 pb-8 text-lg">
+          Thank you for scrolling and learning about me.
+        </div>
       </div>
     </>
   );
