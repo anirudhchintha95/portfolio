@@ -94,7 +94,7 @@ export default function AskAI() {
             placeholder="e.g., What backend frameworks has he used?"
             className={`pl-4 pr-4 h-12 w-full rounded shadow-md bg-white ${
               qError ? "border-2 border-red-500" : "border border-gray-400"
-            } disabled:opacity-60 disabled:cursor-not-allowed`}
+            } disabled:opacity-60 disabled:cursor-not-allowed dark:text-gray-700`}
             autoComplete="off"
             value={q}
             onChange={setQuestion}
