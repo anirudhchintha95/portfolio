@@ -14,7 +14,7 @@ html {
 }
 
 .dark {
-  --line-color: rgba(255, 255, 255, 0.1);
+  --line-color: oklch(87.685% 0.1042 77.401);
 }
 
 @theme inline {
@@ -103,7 +103,9 @@ body {
     font-family: var(--font-inter);
   }
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-family: var(--font-pixelify-sans);
   }
 }
