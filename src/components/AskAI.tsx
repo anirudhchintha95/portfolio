@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import CloseButton from "./general/CloseButton";
 import Button from "./general/Button";
 
@@ -14,19 +14,13 @@ const SUGGESTIONS = [
   "What databases does he know?",
 ];
 
-const LS_KEY = "askai:lastQuestion";
-
 export default function AskAI() {
-  const [q, setQ] = useState<string>(() => localStorage.getItem(LS_KEY) ?? "");
+  const [q, setQ] = useState<string>("");
   const [qError, setQError] = useState<string | null>(null);
   const [a, setA] = useState<AskAIResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    localStorage.setItem(LS_KEY, q);
-  }, [q]);
 
   function setQuestion(e: React.ChangeEvent<HTMLInputElement>) {
     setQError(null);
