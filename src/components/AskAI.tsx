@@ -124,13 +124,13 @@ export default function AskAI() {
             ) : a?.answer ? (
               <>
                 <div className="mb-2 flex items-center justify-between">
-                  <h3 className="text-sm font-medium text-gray-700">
+                  <h3 className="text-sm font-semibold text-gray-700">
                     AI Answer
                   </h3>
                   <div className="flex gap-2">
                     <Button
                       onClick={copyAnswer}
-                      className="!px-3 !py-1 text-xs border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+                      className="!px-3 !py-1 text-xs !border-gray-300 !bg-gray-50 !text-gray-700 !dark:text-gray-700 hover:bg-gray-50"
                     >
                       Copy
                     </Button>

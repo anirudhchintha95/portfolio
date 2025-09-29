@@ -11,7 +11,7 @@ import SquareTile from "./general/SquareTile";
 const EMAIL = "anirudhchintha95@gmail.com";
 const CITY = "Jersey City, NJ";
 const MAP_URL = `https://www.google.com/maps?q=${encodeURIComponent(CITY)}`;
-const RESUME_HREF = "/Anirudh_Chintha_Resume.pdf";
+const RESUME_HREF = "/resume.pdf";
 
 export default function ContactMe() {
   return (

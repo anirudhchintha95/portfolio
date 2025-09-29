@@ -34,11 +34,11 @@ export default function SquareTile({
           }
         }}
         className={[
-          "aspect-square w-[7rem] sm:w-[12rem]",
+          "aspect-square w-[7rem] sm:w-[12rem] shadow-md",
           "cursor-pointer sm:cursor-auto relative rounded-2xl p-[1px]",
           "bg-gradient-to-br from-indigo-500/30 via-indigo-400/20 to-indigo-500/30",
           "transition-transform hover:scale-[1.02] active:scale-[0.99] focus:outline-none",
-          "group", // 👈 needed for hover
+          "group",
         ].join(" ")}
       >
         <div
@@ -67,7 +67,7 @@ export default function SquareTile({
             className={[
               "mb-1 flex h-10 w-10 items-center justify-center rounded-full relative z-10",
               "bg-gray-900 ring-1 ring-black/5 dark:bg-gray-700 dark:ring-white/10",
-              "group-hover:animate-bounce group-focus:animate-bounce",
+              "group-hover:animate-bounce group-focus:animate-bounce group-hover:scale-120 group-hover:duration-75 group-hover:animation-delay-100",
             ].join(" ")}
           >
             {icon}
