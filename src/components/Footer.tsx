@@ -59,7 +59,7 @@ const Footer = () => {
                 title={name}
                 className={[
                   // circular dark chip so white icons have contrast in light mode too
-                  "group inline-flex h-11 w-11 items-center justify-center rounded-full",
+                  "inline-flex h-11 w-11 items-center justify-center rounded-full",
                   "bg-gray-900 dark:bg-gray-700",
                   "transition-all duration-200",
                   "hover:scale-110",

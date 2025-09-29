@@ -26,7 +26,7 @@ export default function Home() {
       </div>
 
       <div id="contact">
-        <Separator text="Contact Me" />
+        <Separator text="Let's connect!" />
         <ContactMe />
       </div>
 

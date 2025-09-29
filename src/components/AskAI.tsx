@@ -219,8 +219,9 @@ export default function AskAI() {
             onClick={() => {
               setQ(prompt);
             }}
+            variant="outline"
             disabled={disabled}
-            className="!rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-50"
+            className="!rounded-full !border-gray-200 !bg-white px-3 py-1.5 text-xs !text-gray-700 !hover:bg-gray-50"
             title={prompt}
           >
             {prompt}
