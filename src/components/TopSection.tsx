@@ -14,15 +14,6 @@ const TopSection = () => {
           <p className="hidden text-gray-500 md:mt-4 md:block dark:text-gray-300">
             Accomplished Full Stack Developer.
           </p>
-
-          <div className="mt-4 md:mt-8">
-            <a
-              href="#contact-me"
-              className="inline-block rounded-sm bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:ring-3 focus:ring-yellow-400 focus:outline-hidden"
-            >
-              Contact Me
-            </a>
-          </div>
         </div>
       </div>
 

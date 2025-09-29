@@ -32,7 +32,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="min-h-dvh bg-gradient-to-br from-indigo-50 via-white to-yellow-100/40 dark:from-gray-900 dark:via-indigo-900 dark:to-gray-900 dark:text-gray-100">
+        <div className="min-h-dvh bg-gradient-to-br from-indigo-50 via-yellow-50 to-indigo-50 dark:from-gray-900 dark:via-indigo-900 dark:to-gray-900 dark:text-gray-100">
           <Header />
           {children}
           <Footer />

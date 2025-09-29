@@ -3,13 +3,17 @@ import AC from "@/../public/AC.png";
 
 const Header = () => {
   return (
-    <header className="bg-white dark:bg-gray-900 sticky top-0 z-50 shadow-sm">
+    <header className="bg-gradient-to-r from-indigo-50 via-white to-yellow-50 dark:from-gray-900 dark:via-gray-600 dark:to-indigo-900 sticky top-0 z-50 shadow-sm">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 flex justify-center md:justify-start md:items-center md:gap-12">
             <a className="block text-teal-600 dark:text-teal-300" href="#">
               <span className="sr-only">Home</span>
-              <Image src={AC} alt="Anirudh Chintha" className="h-12 w-12 rounded" />
+              <Image
+                src={AC}
+                alt="Anirudh Chintha"
+                className="h-12 w-12 rounded"
+              />
             </a>
           </div>
 
