@@ -99,7 +99,7 @@ export default function AskAI() {
     <section className="mx-auto max-w-screen-xl px-8 sm:px-6 lg:px-8">
       {/* Answer / Error */}
       <div
-        className="mx-auto max-w-xl rounded-xl bg-white shadow-sm ring-1 ring-gray-200"
+        className="mx-auto max-w-xl rounded-xl bg-white dark:bg-indigo-100 shadow-sm ring-1 ring-gray-200"
         aria-live="polite"
         aria-busy={loading ? "true" : "false"}
       >
@@ -167,7 +167,7 @@ export default function AskAI() {
             id="Question"
             type="text"
             placeholder="e.g., What backend frameworks has he used?"
-            className={`h-12 w-full rounded-xl bg-white px-4 shadow-sm outline-none focus:ring-2 focus:ring-indigo-300 ${
+            className={`h-12 w-full rounded-xl bg-white dark:bg-indigo-100 px-4 shadow-sm outline-none focus:ring-2 focus:ring-indigo-300 ${
               qError ? "ring-2 ring-red-400" : "ring-1 ring-gray-300"
             } disabled:cursor-not-allowed disabled:opacity-60 dark:text-gray-800 ${
               !!q ? "pr-[40px]" : ""
@@ -221,7 +221,7 @@ export default function AskAI() {
             }}
             variant="outline"
             disabled={disabled}
-            className="!rounded-full !border-gray-200 !bg-white px-3 py-1.5 text-xs !text-gray-700 !hover:bg-gray-50"
+            className="!rounded-full !border-gray-200 !bg-white !dark:dark:bg-indigo-100 px-3 py-1.5 text-xs !text-gray-700 !hover:bg-gray-50"
             title={prompt}
           >
             {prompt}
