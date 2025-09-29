@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Pixelify_Sans, Inter } from "next/font/google";
 
 import "../styles/globals.css";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const pixel = Pixelify_Sans({
   subsets: ["latin"],
+  variable: "--font-pixelify-sans",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -29,9 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${pixel.variable} ${inter.variable} antialiased`}>
         <div className="min-h-dvh bg-gradient-to-br from-indigo-50 via-yellow-50 to-indigo-50 dark:from-gray-900 dark:via-indigo-900 dark:to-gray-900 dark:text-gray-100">
           <Header />
           {children}

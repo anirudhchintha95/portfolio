@@ -36,7 +36,7 @@ export default function Home() {
           <span>Thank you for scrolling and learning about me.</span>
           <div className="mt-4">
             <a
-              href="#top"
+              href="#"
               className="inline-flex items-center gap-2 text-sm text-gray-600 underline-offset-4 hover:underline dark:text-gray-300"
             >
               ↑ Back to top

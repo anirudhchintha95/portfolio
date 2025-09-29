@@ -38,7 +38,7 @@ export default function SquareTile({
           "cursor-pointer sm:cursor-auto relative rounded-2xl p-[1px]",
           "bg-gradient-to-br from-indigo-500/30 via-indigo-400/20 to-indigo-500/30",
           "transition-transform hover:scale-[1.02] active:scale-[0.99] focus:outline-none",
-          "group",
+          "group font-pixel",
         ].join(" ")}
       >
         <div
@@ -76,9 +76,9 @@ export default function SquareTile({
 
           {/* Title */}
           <div className="px-2 text-center relative z-10">
-            <div className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white truncate">
               {title}
-            </div>
+            </h3>
             {subtitle && (
               <div className="hidden sm:block mt-0.5 text-xs text-gray-600 dark:text-gray-300 line-clamp-2">
                 {subtitle}
@@ -118,9 +118,9 @@ export default function SquareTile({
               <div className="h-12 w-12 flex items-center justify-center rounded-full bg-gray-900 dark:bg-gray-700">
                 {icon}
               </div>
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                 {title}
-              </h2>
+              </h3>
               {subtitle && (
                 <p className="text-sm text-gray-600 dark:text-gray-300 text-center">
                   {subtitle}

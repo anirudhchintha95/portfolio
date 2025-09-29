@@ -43,7 +43,7 @@ export default function ContactMe() {
               className="h-5 w-5 brightness-200"
             />
           }
-          action={{ label: "Google Maps", href: MAP_URL, target: "_blank" }}
+          action={{ label: "Open Google Maps", href: MAP_URL, target: "_blank" }}
         />
 
         <SquareTile
