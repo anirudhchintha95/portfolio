@@ -31,9 +31,17 @@ export default function Home() {
       </div>
 
       <div id="thank-you">
-        <Separator text="Thank you!" />
-        <div className="flex justify-center text-center text-gray-700 dark:text-gray-200 px-8 sm:px-6 lg:px-8 pb-8 text-lg">
-          Thank you for scrolling and learning about me.
+        <Separator text="Thanks for stopping by!" />
+        <div className="flex justify-center flex-col text-center text-gray-700 dark:text-gray-200 px-8 sm:px-6 lg:px-8 pb-8 text-lg">
+          <span>Thank you for scrolling and learning about me.</span>
+          <div className="mt-4">
+            <a
+              href="#top"
+              className="inline-flex items-center gap-2 text-sm text-gray-600 underline-offset-4 hover:underline dark:text-gray-300"
+            >
+              ↑ Back to top
+            </a>
+          </div>
         </div>
       </div>
     </>
