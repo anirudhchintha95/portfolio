@@ -47,7 +47,7 @@ export default function ContactMe() {
         />
 
         <SquareTile
-          title="Résumé"
+          title="Resume"
           subtitle="PDF, 1-2 pages"
           icon={
             <Image

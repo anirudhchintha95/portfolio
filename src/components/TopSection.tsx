@@ -2,6 +2,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import Ani from "@/../public/Ani.jpeg";
+import { LINKED_IN } from "@/constants";
+
+import SocialButton from "./general/SocialButton";
+import Button from "./general/Button";
 
 const TopSection = () => {
   const [mounted, setMounted] = useState(false);
@@ -26,7 +30,7 @@ const TopSection = () => {
             backgroundSize: "40px 40px",
           }}
         />
-        <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+        <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right flex flex-col items-center sm:items-start">
           <h2 className="text-xl font-bold text-gray-900 md:text-3xl dark:text-indigo-100">
             Hi, I am{" "}
             <b className="relative text-3xl sm:text-4xl group inline-block">
@@ -62,7 +66,7 @@ const TopSection = () => {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-gray-900 dark:bg-indigo-100"></span>
               </span>
             </b>
-            <p className="hidden sm:block font-pixel mt-2 text-xs text-gray-500 dark:text-gray-400 animate-pulse">
+            <p className="hidden sm:block !font-pixel mt-2 text-xs text-gray-500 dark:text-gray-400 animate-pulse">
               (psst... hover over my name ✨)
             </p>
           </h2>
@@ -71,6 +75,46 @@ const TopSection = () => {
             Accomplished Full Stack Developer. Turning ideas into reliable
             products
           </p>
+
+          <div className="mt-4 sm:mt-2 flex items-center gap-2 w-full">
+            {/* left-side squiggle: show on mobile */}
+            <svg className="hidden sm:block flex-1 h-10 text-indigo-600 dark:text-amber-400">
+              <defs>
+                <pattern
+                  id="squig"
+                  width="100"
+                  height="50"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <path
+                    d="M0,25 C25,0 75,50 100,25"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    fill="none"
+                  />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#squig)" />
+            </svg>
+
+            {/* left-side line: show on mobile */}
+            <span className="sm:hidden flex-1 h-[2px] bg-gradient-to-r from-indigo-800 to-indigo-500 dark:from-amber-500 dark:to-amber-300" />
+
+            {/* buttons */}
+            <div className="flex flex-row gap-2">
+              <Button
+                href="#contact"
+                className="bg-gradient-to-r from-indigo-800 to-indigo-500 text-white 
+                 hover:from-indigo-900 hover:to-indigo-600 font-pixel"
+              >
+                {"Let's connect"}
+              </Button>
+              <SocialButton {...LINKED_IN} primary />
+            </div>
+
+            {/* right-side line: show on mobile */}
+            <span className="flex-1 bg-gradient-to-l h-[2px] from-indigo-800 to-indigo-500 dark:from-amber-500 dark:to-amber-300 sm:hidden" />
+          </div>
         </div>
       </div>
 

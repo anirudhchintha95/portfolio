@@ -1,16 +1,12 @@
-import Image from "next/image";
-
-import LinkedInSVG from "@svg/linkedin.svg";
 import TwitterSVG from "@svg/twitter.svg";
 import GithubSVG from "@svg/github.svg";
 import EmailSVG from "@svg/email.svg";
 
+import SocialButton from "./general/SocialButton";
+import { LINKED_IN } from "@/constants";
+
 const links = [
-  {
-    href: "https://linkedin.com/in/anirudh-chintha",
-    src: LinkedInSVG,
-    name: "LinkedIn",
-  },
+  LINKED_IN,
   {
     href: "https://github.com/anirudhchintha95",
     src: GithubSVG,
@@ -51,40 +47,7 @@ const Footer = () => {
           <div className="flex items-center justify-center gap-4">
             <span className="w-8 sm:w-48 h-[2px] bg-gray-900 dark:bg-amber-500"></span>
             {links.map(({ href, name, src }) => (
-              <a
-                key={name}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={name}
-                title={name}
-                className="relative group"
-              >
-                <span className="relative flex">
-                  <span className="absolute inline-flex h-[45px] w-[45px] -left-[1px] -top-[1px] rounded-full bg-gray-900 dark:bg-gray-700 opacity-0 group-hover:animate-ping group-hover:opacity-75"></span>
-                  <span
-                    className={[
-                      "relative inline-flex h-11 w-11 items-center justify-center rounded-full",
-                      "bg-gray-900 dark:bg-gray-700",
-                      "transition-all duration-200",
-                      "hover:scale-110",
-                      "hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.85)]",
-                      "ring-1 ring-black/5 dark:ring-white/5",
-                    ].join(" ")}
-                  >
-                    <Image
-                      src={src!}
-                      alt={name}
-                      className={[
-                        "h-6 w-6",
-                        "brightness-200",
-                        // email icon is already white
-                        name === "Email" ? "" : "invert",
-                      ].join(" ")}
-                    />
-                  </span>
-                </span>
-              </a>
+              <SocialButton key={name} href={href} name={name} src={src} />
             ))}
             <span className="w-8 sm:hidden h-[2px] bg-gray-900 dark:bg-amber-500"></span>
           </div>

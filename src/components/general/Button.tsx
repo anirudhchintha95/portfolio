@@ -56,7 +56,7 @@ const Button = ({
       variantMappings[variant],
     [variant]
   );
-  const linkClassName = `${baseClassName} inline-block no-underline hover:no-underline ${className}`;
+  const linkClassName = `${baseClassName} !py-3 inline-block no-underline hover:no-underline ${className}`;
 
   if ("href" in props && props.href !== undefined) {
     const { href, target, ...rest } = props as ButtonAsLink;
