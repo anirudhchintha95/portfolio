@@ -30,11 +30,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <div className="min-h-dvh bg-gradient-to-br from-indigo-50 via-white to-yellow-100/40 dark:from-gray-900 dark:via-indigo-900 dark:to-gray-900 dark:text-gray-100">
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
