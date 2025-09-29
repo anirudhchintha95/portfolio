@@ -221,7 +221,7 @@ export default function AskAI() {
             }}
             variant="outline"
             disabled={disabled}
-            className="!rounded-full !border-gray-200 !bg-white !dark:dark:bg-indigo-100 px-3 py-1.5 text-xs !text-gray-700 !hover:bg-gray-50"
+            className="!rounded-full !border-gray-200 !bg-white !dark:bg-indigo-100 px-3 py-1.5 text-xs !text-gray-700 !hover:bg-gray-50"
             title={prompt}
           >
             {prompt}
