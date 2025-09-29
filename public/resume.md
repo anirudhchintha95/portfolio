@@ -8,7 +8,7 @@
 
 JavaScript, TypeScript, Ruby, Python, ReactJS, Angular (15+), HTML, CSS, React Native, NodeJS, Express.js, Ruby on Rails, Flask, PostgreSQL, MongoDB, Redis, Docker, Jenkins, CI/CD, AWS (S3, EC2), Jest, Angular Testing Library, React Testing Library, Karma, Jasmine, Unit Testing, Integration Testing, Material UI, Tailwind CSS, Agile, Scrum, JIRA, Git, Github, BitBucket, Confluence
 
-ReactJS Experience: 1.5 years, software engineer, WAL + 1 year, senior software engineer WAL + 3 month, intern, iCIMS + 6 months, Master's project, Stevens.
+ReactJS Experience: 1.5 years, software engineer, WAL + 1 year, senior software engineer WAL + 3 month, intern, iCIMS + 6 months, Master's projects, Stevens.
 ReactNative Experience: 1 year, senior software engineer, WAL.
 Angular Experience: 2 years, software engineer, iCIMS.
 NodeJS Experience: 2 years, intern+software engineer, icims, 1 year, senior software engineer, WAL. 6 months, Master's project, Stevens.

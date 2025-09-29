@@ -29,7 +29,7 @@ const ContactMe = () => {
       {links.map(({ href, src, name, value, target }) => (
         <a
           key={name}
-          className="group border rounded-sm px-4 py-2 text-sm shadow-md cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 focus:outline-hidden border-indigo-600 bg-indigo-600 font-semibold text-white hover:bg-indigo-800 focus:ring-3 text-center sm:text-left"
+          className="group border rounded-xl px-4 py-2 text-sm shadow-md cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 focus:outline-hidden border-indigo-600 bg-indigo-600 font-semibold text-white hover:bg-indigo-800 focus:ring-3 text-center sm:text-left"
           href={href}
           target={target || "_self"}
         >

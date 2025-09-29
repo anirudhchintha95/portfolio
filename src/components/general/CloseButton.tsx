@@ -1,17 +1,19 @@
 const CloseButton = ({
   className,
   onClick,
+  title,
 }: {
   className?: string;
   onClick?: () => void;
+  title?: string;
 }) => {
   return (
     <button
       type="button"
-      className={`-me-4 -mt-4 rounded-full p-2 text-gray-400 transition-colors hover:bg-gray-50 hover:text-gray-600 focus:outline-none ${
+      className={`cursor-pointer -me-4 -mt-4 rounded-full p-2 text-gray-400 transition-colors hover:bg-gray-50 hover:text-gray-600 focus:outline-none ${
         className ?? ""
       }`}
-      aria-label="Close"
+      aria-label={title}
       onClick={onClick ?? (() => {})}
     >
       <svg

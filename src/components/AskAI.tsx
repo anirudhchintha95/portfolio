@@ -1,14 +1,32 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CloseButton from "./general/CloseButton";
 import Button from "./general/Button";
-import Loader from "./general/Loader";
+
+type AskAIResponse = {
+  answer?: string;
+  error?: string;
+};
+
+const SUGGESTIONS = [
+  "What backend frameworks has he used?",
+  "How many years of React experience?",
+  "Key projects worth showcasing?",
+  "What databases does he know?",
+];
+
+const LS_KEY = "askai:lastQuestion";
 
 export default function AskAI() {
-  const [q, setQ] = useState("");
+  const [q, setQ] = useState<string>(() => localStorage.getItem(LS_KEY) ?? "");
   const [qError, setQError] = useState<string | null>(null);
-  const [a, setA] = useState<string | null>(null);
+  const [a, setA] = useState<AskAIResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    localStorage.setItem(LS_KEY, q);
+  }, [q]);
 
   function setQuestion(e: React.ChangeEvent<HTMLInputElement>) {
     setQError(null);
@@ -20,12 +38,18 @@ export default function AskAI() {
     setErr(null);
   }
 
-  async function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  function clearInput() {
+    setQ("");
+    inputRef.current?.focus();
+  }
+
+  async function onSubmit(e?: React.FormEvent) {
+    e?.preventDefault();
     const question = q.trim();
 
     if (!question) {
       setQError("Please enter a question");
+      inputRef.current?.focus();
       return;
     }
 
@@ -40,42 +64,96 @@ export default function AskAI() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data?.error || "Something went wrong");
-      setA(data.answer ?? "I don't know");
+
+      const data: AskAIResponse = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        if (res.status === 429)
+          throw new Error("Rate limited. Please try again in a moment.");
+        if (data?.error) throw new Error(data.error);
+        throw new Error("Something went wrong. Please try again.");
+      }
+
+      setA({
+        answer: data.answer ?? "I don't know.",
+      });
     } catch {
       setErr("Request failed");
     } finally {
-      setQ("");
       setLoading(false);
     }
   }
 
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter") onSubmit();
+    if (e.key === "Escape") clearInput();
+  }
+
+  async function copyAnswer() {
+    const text = a?.answer?.toString() ?? "";
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      // ignore
+    }
+  }
+
+  const disabled = loading;
+
   return (
     <section className="mx-auto max-w-screen-xl px-8 sm:px-6 lg:px-8">
       {/* Answer / Error */}
-      <div className="mx-auto max-w-xl bg-white rounded-md shadow-lg">
+      <div
+        className="mx-auto max-w-xl rounded-xl bg-white shadow-sm ring-1 ring-gray-200"
+        aria-live="polite"
+        aria-busy={loading ? "true" : "false"}
+      >
         {err ? (
-          <div className="rounded border border-red-300 bg-red-50 p-3 text-sm text-red-800 min-h-[82px]">
+          <div className="min-h-[90px] rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">
             {err}
           </div>
         ) : (
-          <div className="relative rounded border border-gray-200 bg-white p-4 text-gray-900 min-h-[82px]">
+          <div className="relative min-h-[90px] rounded-xl p-4 text-gray-900">
             {loading ? (
-              <div className="flex items-center justify-center h-full">
-                <Loader />
+              <div
+                className="flex h-full items-center justify-center"
+                role="status"
+                aria-label="Loading"
+              >
+                <div className="w-full">
+                  <div className="h-3 w-2/3 animate-pulse rounded bg-gray-200" />
+                  <div className="mt-2 h-3 w-5/6 animate-pulse rounded bg-gray-200" />
+                  <div className="mt-2 h-3 w-1/2 animate-pulse rounded bg-gray-200" />
+                </div>
               </div>
-            ) : a ? (
+            ) : a?.answer ? (
               <>
-                {a}
-                <CloseButton
-                  className="absolute top-4 right-4 cursor-pointer"
-                  onClick={handleClose}
-                />
+                <div className="mb-2 flex items-center justify-between">
+                  <h3 className="text-sm font-medium text-gray-700">
+                    AI Answer
+                  </h3>
+                  <div className="flex gap-2">
+                    <Button
+                      onClick={copyAnswer}
+                      className="!px-3 !py-1 text-xs border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+                    >
+                      Copy
+                    </Button>
+                    <CloseButton
+                      onClick={handleClose}
+                      aria-label="Clear answer"
+                      title="Clear answer"
+                    />
+                  </div>
+                </div>
+                <p className="whitespace-pre-wrap text-sm leading-6 text-gray-800">
+                  {a.answer}
+                </p>
               </>
             ) : (
-              <span className="text-gray-400">
-                Type a question about Anirudh`s skills, experience, or education
+              <span className="text-gray-500">
+                Type a question about Anirudh’s skills, experience, or education
                 below. Answers come from the latest résumé.
               </span>
             )}
@@ -86,51 +164,70 @@ export default function AskAI() {
       {/* Ask AI form */}
       <form
         onSubmit={onSubmit}
-        className="mx-auto mt-6 flex max-w-xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-center"
+        className="mx-auto mt-6 flex max-w-xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-center"
       >
-        <label htmlFor="Question" className="flex-1 relative">
+        <label htmlFor="Question" className="relative flex-1">
           <span className="sr-only">Question</span>
-
           <input
+            ref={inputRef}
             id="Question"
             type="text"
             placeholder="e.g., What backend frameworks has he used?"
-            className={`pl-4 pr-4 h-12 w-full rounded shadow-md bg-white ${
-              qError ? "border-2 border-red-500" : "border border-gray-400"
-            } disabled:opacity-60 disabled:cursor-not-allowed dark:text-gray-700`}
+            className={`h-12 w-full rounded-xl bg-white px-4 shadow-sm outline-none focus:ring-2 focus:ring-indigo-300 ${
+              qError ? "ring-2 ring-red-400" : "ring-1 ring-gray-300"
+            } disabled:cursor-not-allowed disabled:opacity-60 dark:text-gray-800 ${
+              !!q ? "pr-[40px]" : ""
+            }`}
             autoComplete="off"
             value={q}
             onChange={setQuestion}
-            disabled={loading}
+            onKeyDown={handleKeyDown}
+            disabled={disabled}
+            aria-invalid={qError ? "true" : "false"}
+            aria-describedby={qError ? "question-error" : undefined}
           />
+          {!!q && (
+            <CloseButton
+              className="absolute right-[20px] top-[20px]"
+              onClick={clearInput}
+              aria-label="Clear text"
+              title="Clear text"
+            />
+          )}
+          {qError && (
+            <p id="question-error" className="mt-1 text-xs text-red-600">
+              {qError}
+            </p>
+          )}
         </label>
 
         <Button
           type="submit"
-          className="h-12 rounded-sm border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-indigo-800 focus:ring-3"
-          disabled={loading || !q.trim()}
+          className="h-12 border-indigo-600 bg-indigo-600 px-6 text-sm font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-300 disabled:cursor-not-allowed disabled:opacity-60"
+          disabled={disabled || !q.trim()}
+          aria-label="Ask AI"
+          title="Ask AI"
         >
-          {loading ? "Asking…" : "Ask AI"}
+          {loading ? "Thinking…" : "Ask AI"}
         </Button>
       </form>
 
       {/* Subtext */}
-      <p className="mt-2 text-xs text-black text-center dark:text-white">
+      <p className="mt-2 text-center text-xs text-gray-600">
         Powered by ChatGPT
       </p>
 
       {/* Suggested prompts */}
-      <div className="mx-auto mt-4 flex flex-col max-w-xl gap-2 sm:flex-row sm:items-center sm:justify-center">
-        {[
-          "What programming languages does Anirudh know?",
-          "How many years of ReactJS experience does he have?",
-          "Tell me about his education background",
-        ].map((prompt) => (
+      <div className="mx-auto mt-4 flex max-w-xl flex-wrap items-center justify-center gap-2">
+        {SUGGESTIONS.map((prompt) => (
           <Button
             key={prompt}
-            onClick={() => setQ(prompt)}
-            disabled={loading}
-            className="border-gray-300 bg-white text-gray-700 hover:bg-gray-50 !rounded-full"
+            onClick={() => {
+              setQ(prompt);
+            }}
+            disabled={disabled}
+            className="!rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs text-gray-700 hover:bg-gray-50"
+            title={prompt}
           >
             {prompt}
           </Button>

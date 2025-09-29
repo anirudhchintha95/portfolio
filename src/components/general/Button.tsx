@@ -8,7 +8,7 @@ const Button = ({
   return (
     <button
       {...rest}
-      className={`border rounded-sm px-4 py-2 text-sm shadow-md cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 focus:outline-hidden ${className}`}
+      className={`border rounded-xl px-4 py-2 text-sm shadow-md cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 focus:outline-hidden ${className}`}
     >
       {children}
     </button>

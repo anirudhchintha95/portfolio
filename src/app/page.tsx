@@ -21,7 +21,7 @@ export default function Home() {
       </div>
 
       <div id="ask-ai">
-        <Separator text="Ask AI about Anirudh" />
+        <Separator text={["Curious about my skills?", "Just ask my AI."]} />
         <GenAISearch />
       </div>
 
