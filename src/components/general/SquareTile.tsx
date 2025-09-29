@@ -56,8 +56,8 @@ export default function SquareTile({
             className="absolute inset-0 opacity-0 group-hover:opacity-40 group-focus:opacity-40 transition-opacity duration-300 pointer-events-none animate-diagonal-sweep"
             style={{
               backgroundImage: `
-                linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px)
+                linear-gradient(to right, var(--line-color) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--line-color) 1px, transparent 1px)
               `,
               backgroundSize: "40px 40px",
             }}
