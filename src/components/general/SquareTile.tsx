@@ -115,7 +115,7 @@ export default function SquareTile({
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col items-center gap-3">
-              <div className="h-12 w-12 flex items-center justify-center rounded-full bg-gray-900 dark:bg-gray-700">
+              <div className="h-12 w-12 flex items-center justify-center rounded-full bg-gray-900 dark:bg-gray-700 animate-bounce">
                 {icon}
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">

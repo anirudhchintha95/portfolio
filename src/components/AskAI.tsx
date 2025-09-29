@@ -207,7 +207,7 @@ export default function AskAI() {
       </form>
 
       {/* Subtext */}
-      <p className="mt-2 text-center text-xs text-gray-600">
+      <p className="mt-2 text-center text-xs text-gray-600 dark:text-indigo-100">
         Powered by ChatGPT
       </p>
 

@@ -26,11 +26,11 @@ const Separator = ({ text }: { text: string | string[] }) => {
 
       {/* sm+: horizontal */}
       <div className="hidden sm:flex items-center">
-        <span className="h-px flex-1 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600" />
+        <span className="h-px flex-1 bg-gradient-to-r from-transparent to-gray-300 dark:to-amber-500" />
         <h2 className="shrink px-4 text-gray-900 dark:text-white font-bold text-center text-2xl break-words">
           {textArray.join(" ")}
         </h2>
-        <span className="h-px flex-1 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600" />
+        <span className="h-px flex-1 bg-gradient-to-l from-transparent to-gray-300 dark:to-amber-500" />
       </div>
     </section>
   );
