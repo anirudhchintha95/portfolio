@@ -116,9 +116,9 @@ export default function AskAI() {
                 aria-label="Loading"
               >
                 <div className="w-full">
-                  <div className="h-3 w-2/3 animate-pulse rounded bg-gray-200" />
-                  <div className="mt-2 h-3 w-5/6 animate-pulse rounded bg-gray-200" />
-                  <div className="mt-2 h-3 w-1/2 animate-pulse rounded bg-gray-200" />
+                  <div className="h-3 w-2/3 animate-pulse rounded bg-gray-200 dark:bg-gray-600" />
+                  <div className="mt-2 h-3 w-5/6 animate-pulse rounded bg-gray-200 dark:bg-gray-600" />
+                  <div className="mt-2 h-3 w-1/2 animate-pulse rounded bg-gray-200 dark:bg-gray-600" />
                 </div>
               </div>
             ) : a?.answer ? (
