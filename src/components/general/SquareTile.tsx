@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Button from "./Button";
 import { useToast } from "./ToastContext";
 
@@ -27,6 +27,8 @@ export default function SquareTile({
 }: TileProps & { variant?: "normal" | "small" }) {
   const { showToast } = useToast();
   const [open, setOpen] = useState(false);
+  const tileRef = useRef<HTMLDivElement>(null);
+
   const hasAction = !!action;
   const isSmallVariant = useMemo(() => variant === "small", [variant]);
 
@@ -34,6 +36,9 @@ export default function SquareTile({
     if (window.innerWidth < 640) {
       if (isSmallVariant || !action) {
         showToast(title);
+        setTimeout(() => {
+          tileRef.current?.blur();
+        }, 2000);
       } else {
         setOpen(true);
       }
@@ -44,6 +49,7 @@ export default function SquareTile({
     <>
       {/* TILE */}
       <div
+        ref={tileRef}
         onClick={handleClick}
         className={[
           isSmallVariant ? "w-[4rem] sm:w-[7rem]" : "w-[7rem] sm:w-[12rem]",
