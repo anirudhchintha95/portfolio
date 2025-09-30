@@ -95,7 +95,7 @@ export default function ContactMe() {
             />
           }
           modalClassName="!max-w-[80vw] sm:!max-w-[60vw]"
-          modalContentClassName="!h-[80vh]"
+          modalContentClassName="!h-[50vh] sm:!max-w-[80vw]"
           modalContent={() => {
             return (
               <iframe
