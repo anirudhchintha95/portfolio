@@ -6,6 +6,7 @@ import "../styles/globals.css";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ToastProvider } from "@/components/general/ToastContext";
 
 const pixel = Pixelify_Sans({
   subsets: ["latin"],
@@ -37,11 +38,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-dvh bg-gradient-to-br from-indigo-50 via-yellow-50 to-indigo-50 dark:from-gray-900 dark:via-indigo-900 dark:to-gray-900 dark:text-gray-100 transition-colors duration-300">
-            <Header />
-            {children}
-            <Footer />
-          </div>
+          <ToastProvider>
+            <div className="min-h-dvh bg-gradient-to-br from-indigo-50 via-yellow-50 to-indigo-50 dark:from-gray-900 dark:via-indigo-900 dark:to-gray-900 dark:text-gray-100 transition-colors duration-300">
+              <Header />
+              {children}
+              <Footer />
+            </div>
+          </ToastProvider>
         </ThemeProvider>
       </body>
     </html>

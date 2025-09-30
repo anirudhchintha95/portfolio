@@ -7,6 +7,7 @@ import About from "@/components/About";
 import ContactMe from "@/components/ContactMe";
 import GenAISearch from "@/components/AskAI";
 import TopSection from "@/components/TopSection";
+import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
@@ -23,6 +24,11 @@ export default function Home() {
       <div id="ask-ai">
         <Separator text={["Curious about my skills?", "Just ask my AI."]} />
         <GenAISearch />
+      </div>
+
+      <div id="skills">
+        <Separator text="Skills" />
+        <Skills />
       </div>
 
       <div id="contact">

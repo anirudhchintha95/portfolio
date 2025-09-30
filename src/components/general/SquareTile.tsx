@@ -1,7 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Button from "./Button";
+import { useToast } from "./ToastContext";
+
+export interface TileProps {
+  title: string;
+  icon: React.ReactNode;
+  subtitle?: string;
+  action?: Action;
+}
 
 type Action = {
   label: string;
@@ -15,26 +23,34 @@ export default function SquareTile({
   subtitle,
   icon,
   action,
-}: {
-  title: string;
-  subtitle?: string;
-  icon: React.ReactNode;
-  action?: Action;
-}) {
+  variant,
+}: TileProps & { variant?: "normal" | "small" }) {
+  const { showToast } = useToast();
   const [open, setOpen] = useState(false);
-  const isContact = !!action;
+  const hasAction = !!action;
+  const isSmallVariant = useMemo(() => variant === "small", [variant]);
+
+  const handleDoubleClick = () => {
+    if (isSmallVariant && window.innerWidth < 640) {
+      setOpen(true);
+    }
+  };
+
+  const handleClick = () => {
+    if (window.innerWidth < 640) {
+      showToast(title);
+    }
+  };
 
   return (
     <>
       {/* TILE */}
       <div
-        onClick={() => {
-          if (isContact && window.innerWidth < 640) {
-            setOpen(true);
-          }
-        }}
+        onClick={handleClick}
+        onDoubleClick={handleDoubleClick}
         className={[
-          "aspect-square w-[7rem] sm:w-[12rem] shadow-md",
+          isSmallVariant ? "w-[4rem] sm:w-[7rem]" : "w-[7rem] sm:w-[12rem]",
+          "aspect-square shadow-md",
           "cursor-pointer sm:cursor-auto relative rounded-2xl p-[1px]",
           "bg-gradient-to-br from-indigo-500/30 via-indigo-400/20 to-indigo-500/30",
           "transition-transform hover:scale-[1.02] active:scale-[0.99] focus:outline-none",
@@ -45,9 +61,7 @@ export default function SquareTile({
           className={[
             "flex h-full w-full flex-col items-center justify-center gap-2 rounded-2xl shadow-sm relative overflow-hidden",
             "transition-colors duration-200",
-            !isContact
-              ? "bg-transparent sm:bg-white/90 dark:sm:bg-gray-800/90 sm:backdrop-blur-sm"
-              : "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm",
+            "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm",
           ].join(" ")}
         >
           {/* Cross-line overlay */}
@@ -66,7 +80,8 @@ export default function SquareTile({
           {/* Icon */}
           <div
             className={[
-              "mb-1 flex h-10 w-10 items-center justify-center rounded-full relative z-10",
+              isSmallVariant ? "h-8 w-8" : "h-10 w-10",
+              "mb-1 flex items-center justify-center rounded-full relative z-10",
               "bg-gray-900 ring-1 ring-black/5 dark:bg-gray-700 dark:ring-white/10",
               "group-hover:scale-120",
               // big screens -> bounce right there
@@ -77,8 +92,18 @@ export default function SquareTile({
           </div>
 
           {/* Title */}
-          <div className="px-2 text-center relative z-10">
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white truncate">
+          <div
+            className={[
+              "px-2 text-center relative z-10",
+              isSmallVariant ? "hidden sm:block" : "",
+            ].join(" ")}
+          >
+            <h3
+              className={[
+                "font-semibold text-gray-900 dark:text-white truncate",
+                isSmallVariant ? "text-md sm:text-lg" : "text-lg sm:text-xl",
+              ].join(" ")}
+            >
               {title}
             </h3>
             {subtitle && (
@@ -89,7 +114,7 @@ export default function SquareTile({
           </div>
 
           {/* Action (desktop only) */}
-          {action && isContact && (
+          {action && hasAction && (
             <div className="hidden sm:block relative z-10">
               <Button
                 className="!px-3 !py-1 text-xs"
@@ -107,7 +132,7 @@ export default function SquareTile({
       </div>
 
       {/* CONTACT DIALOG */}
-      {isContact && open && (
+      {open && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40"
           onClick={() => setOpen(false)}
