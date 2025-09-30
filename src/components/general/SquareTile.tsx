@@ -55,7 +55,7 @@ export default function SquareTile({
         onClick={handleClick}
         className={[
           isSmallVariant ? "w-[4rem] sm:w-[7rem]" : "w-[7rem] sm:w-[12rem]",
-          !mobileOnlyModal || window.innerWidth < 640 ? "cursor-pointer" : "",
+          "cursor-pointer",
           "aspect-square shadow-md",
           "cursor-pointer sm:cursor-auto relative rounded-2xl p-[1px]",
           "bg-gradient-to-br from-indigo-500/30 via-indigo-400/20 to-indigo-500/30",
@@ -68,7 +68,7 @@ export default function SquareTile({
             "flex h-full w-full flex-col items-center justify-center gap-2 rounded-2xl shadow-sm relative overflow-hidden",
             "transition-colors duration-200",
             "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm",
-            !mobileOnlyModal || window.innerWidth < 640 ? "cursor-pointer" : "",
+            "cursor-pointer",
           ].join(" ")}
         >
           {/* Cross-line overlay */}
