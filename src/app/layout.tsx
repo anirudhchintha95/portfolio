@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 import { Pixelify_Sans, Inter } from "next/font/google";
 
 import "../styles/globals.css";
@@ -28,13 +29,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${pixel.variable} ${inter.variable} antialiased`}>
-        <div className="min-h-dvh bg-gradient-to-br from-indigo-50 via-yellow-50 to-indigo-50 dark:from-gray-900 dark:via-indigo-900 dark:to-gray-900 dark:text-gray-100">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="min-h-dvh bg-gradient-to-br from-indigo-50 via-yellow-50 to-indigo-50 dark:from-gray-900 dark:via-indigo-900 dark:to-gray-900 dark:text-gray-100 transition-colors duration-300">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

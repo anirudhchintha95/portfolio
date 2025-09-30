@@ -1,12 +1,13 @@
 import Image from "next/image";
 import AC from "@/../public/AC.png";
+import ThemeToggle from "./general/ThemeToggle";
 
 const Header = () => {
   return (
     <header className="bg-gradient-to-r from-indigo-50 via-white to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900 sticky top-0 z-50 shadow-sm">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex-1 flex justify-center md:justify-start md:items-center md:gap-12">
+          <div className="flex-1 flex justify-center pl-[36px] sm:pl-0 sm:justify-start sm:items-center sm:gap-12">
             <a className="block text-teal-600 dark:text-teal-300" href="#">
               <span className="sr-only">Home</span>
               <Image
@@ -18,7 +19,7 @@ const Header = () => {
           </div>
 
           <div className="sm:flex sm:items-center">
-            <nav aria-label="Global" className="hidden md:block">
+            <nav aria-label="Global" className="hidden sm:block">
               <ul className="flex items-center gap-6 text-sm">
                 <li>
                   <a
@@ -75,6 +76,7 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
+            <ThemeToggle />
           </div>
         </div>
       </div>

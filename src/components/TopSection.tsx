@@ -30,7 +30,7 @@ const TopSection = () => {
             backgroundSize: "40px 40px",
           }}
         />
-        <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right flex flex-col items-center sm:items-start">
+        <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right flex flex-col items-center sm:items-start z-10">
           <h2 className="text-xl font-bold text-gray-900 md:text-3xl dark:text-indigo-100">
             Hi, I am{" "}
             <b className="relative text-3xl sm:text-4xl group inline-block">
