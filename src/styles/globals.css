@@ -11,7 +11,7 @@ html {
 }
 
 .dark {
-  --line-color: oklch(87.685% 0.1042 77.401);
+  --line-color: oklch(36.429% 0.06833 69.787);
 }
 
 @theme inline {

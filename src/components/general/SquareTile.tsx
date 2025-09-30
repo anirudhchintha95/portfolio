@@ -1,14 +1,14 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
-import Button from "./Button";
-import { useToast } from "./ToastContext";
+import { ReactNode, useMemo, useRef, useState } from "react";
+
+import Modal from "./Modal";
 
 export interface TileProps {
   title: string;
   icon: React.ReactNode;
-  subtitle?: string;
-  action?: Action;
+  description?: string;
+  modalActions?: Action[];
 }
 
 type Action = {
@@ -20,28 +20,30 @@ type Action = {
 
 export default function SquareTile({
   title,
-  subtitle,
+  description,
   icon,
-  action,
+  modalActions,
+
   variant,
-}: TileProps & { variant?: "normal" | "small" }) {
-  const { showToast } = useToast();
+  mobileOnlyModal,
+  modalClassName,
+  modalContentClassName,
+  modalContent,
+}: TileProps & {
+  modalClassName?: string;
+  modalContentClassName?: string;
+  variant?: "normal" | "small";
+  mobileOnlyModal?: boolean;
+  modalContent?: () => ReactNode;
+}) {
   const [open, setOpen] = useState(false);
   const tileRef = useRef<HTMLDivElement>(null);
 
-  const hasAction = !!action;
   const isSmallVariant = useMemo(() => variant === "small", [variant]);
 
   const handleClick = () => {
-    if (window.innerWidth < 640) {
-      if (isSmallVariant || !action) {
-        showToast(title);
-        setTimeout(() => {
-          tileRef.current?.blur();
-        }, 2000);
-      } else {
-        setOpen(true);
-      }
+    if (!mobileOnlyModal || window.innerWidth < 640) {
+      setOpen(true);
     }
   };
 
@@ -53,6 +55,7 @@ export default function SquareTile({
         onClick={handleClick}
         className={[
           isSmallVariant ? "w-[4rem] sm:w-[7rem]" : "w-[7rem] sm:w-[12rem]",
+          !mobileOnlyModal || window.innerWidth < 640 ? "cursor-pointer" : "",
           "aspect-square shadow-md",
           "cursor-pointer sm:cursor-auto relative rounded-2xl p-[1px]",
           "bg-gradient-to-br from-indigo-500/30 via-indigo-400/20 to-indigo-500/30",
@@ -65,6 +68,7 @@ export default function SquareTile({
             "flex h-full w-full flex-col items-center justify-center gap-2 rounded-2xl shadow-sm relative overflow-hidden",
             "transition-colors duration-200",
             "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm",
+            !mobileOnlyModal || window.innerWidth < 640 ? "cursor-pointer" : "",
           ].join(" ")}
         >
           {/* Cross-line overlay */}
@@ -109,71 +113,26 @@ export default function SquareTile({
             >
               {title}
             </h3>
-            {subtitle && (
+            {description && (
               <div className="hidden sm:block mt-0.5 text-xs text-gray-600 dark:text-gray-300 line-clamp-2">
-                {subtitle}
+                {description}
               </div>
             )}
           </div>
-
-          {/* Action (desktop only) */}
-          {action && hasAction && (
-            <div className="hidden sm:block relative z-10">
-              <Button
-                className="!px-3 !py-1 text-xs"
-                variant="outline"
-                href={action.href}
-                target={action.target}
-                onClick={(e) => e.stopPropagation()}
-                download={action.download}
-              >
-                {action.label}
-              </Button>
-            </div>
-          )}
         </div>
       </div>
 
-      {/* CONTACT DIALOG */}
-      {open && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40"
-          onClick={() => setOpen(false)}
-        >
-          <div
-            className="w-full max-w-sm rounded-xl bg-white dark:bg-gray-800 p-6 shadow-lg"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex flex-col items-center gap-3">
-              <div className="h-12 w-12 flex items-center justify-center rounded-full bg-gray-900 dark:bg-gray-700 animate-bounce">
-                {icon}
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                {title}
-              </h3>
-              {subtitle && (
-                <p className="text-sm text-gray-600 dark:text-gray-300 text-center">
-                  {subtitle}
-                </p>
-              )}
-              <div className="flex flex-row gap-2">
-                {action && (
-                  <Button
-                    href={action.href}
-                    target={action.target}
-                    download={action.download}
-                  >
-                    {action.label}
-                  </Button>
-                )}
-                <Button variant="outline" onClick={() => setOpen(false)}>
-                  Close
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        title={title}
+        icon={icon}
+        modalClassName={modalClassName}
+        modalContentClassName={modalContentClassName}
+        actions={modalActions?.length ? modalActions : []}
+      >
+        {modalContent && modalContent()}
+      </Modal>
     </>
   );
 }

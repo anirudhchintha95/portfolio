@@ -92,12 +92,12 @@ const SKILLS: TileProps[] = [
   },
   {
     title: "Python",
-    icon: <FaPython className={iconClassName} />
+    icon: <FaPython className={iconClassName} />,
   },
   {
     title: "Ruby",
-    icon: <DiRuby className={iconClassName} />
-  }
+    icon: <DiRuby className={iconClassName} />,
+  },
 ];
 
 export default function Skills() {
@@ -108,7 +108,13 @@ export default function Skills() {
     >
       <div className="flex justify-center gap-6 sm:gap-8 flex-wrap">
         {SKILLS.map(({ title, icon }) => (
-          <SquareTile key={title} title={title} icon={icon} variant="small" />
+          <SquareTile
+            key={title}
+            title={title}
+            icon={icon}
+            mobileOnlyModal={true}
+            variant="small"
+          />
         ))}
       </div>
     </section>
