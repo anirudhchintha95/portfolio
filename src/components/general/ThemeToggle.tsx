@@ -72,7 +72,7 @@ export default function ThemeToggle() {
           sm:hidden w-9 h-9 flex items-center justify-center !rounded-full
           border border-gray-300 dark:border-gray-600
           bg-white/80 dark:bg-gray-800/80
-          shadow-sm hover:scale-105 active:scale-95 transition-all
+          shadow-xl hover:scale-105 active:scale-95 transition-all
           text-lg
           focus:!ring-0 focus:!outline-none focus:!shadow-none
         "

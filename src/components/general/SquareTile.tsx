@@ -30,15 +30,13 @@ export default function SquareTile({
   const hasAction = !!action;
   const isSmallVariant = useMemo(() => variant === "small", [variant]);
 
-  const handleDoubleClick = () => {
-    if (isSmallVariant && window.innerWidth < 640) {
-      setOpen(true);
-    }
-  };
-
   const handleClick = () => {
     if (window.innerWidth < 640) {
-      showToast(title);
+      if (isSmallVariant || !action) {
+        showToast(title);
+      } else {
+        setOpen(true);
+      }
     }
   };
 
@@ -47,7 +45,6 @@ export default function SquareTile({
       {/* TILE */}
       <div
         onClick={handleClick}
-        onDoubleClick={handleDoubleClick}
         className={[
           isSmallVariant ? "w-[4rem] sm:w-[7rem]" : "w-[7rem] sm:w-[12rem]",
           "aspect-square shadow-md",
