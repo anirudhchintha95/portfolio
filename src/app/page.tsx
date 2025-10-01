@@ -11,7 +11,7 @@ import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
-    <>
+    <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div id="top">
         <TopSection />
       </div>
@@ -50,6 +50,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

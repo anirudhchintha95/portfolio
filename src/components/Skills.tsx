@@ -102,10 +102,7 @@ const SKILLS: TileProps[] = [
 
 export default function Skills() {
   return (
-    <section
-      aria-label="Skills"
-      className="mx-auto max-w-screen-xl px-6 lg:px-8"
-    >
+    <section aria-label="Skills">
       <div className="flex justify-center gap-6 sm:gap-8 flex-wrap">
         {SKILLS.map(({ title, icon }) => (
           <SquareTile

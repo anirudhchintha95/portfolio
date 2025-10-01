@@ -1,5 +1,5 @@
 const About = () => (
-  <section className="px-8 sm:px-6 lg:px-8">
+  <section aria-label="About" className="sm:px-12 lg:px-16">
     Software Engineer with 6+ years of full-stack experience delivering and
     maintaining reliable production applications, specializing in React,
     Angular, NodeJS, PostgreSQL, and cloud technologies to enhance performance

@@ -17,6 +17,7 @@ html {
 @theme inline {
   --font-pixel: var(--font-pixelify-sans);
   --font-inter: var(--font-inter);
+  --font-cascadia-code: var(--font-cascadia-code);
 }
 
 @utility animation-delay-* {
@@ -105,10 +106,10 @@ html {
 }
 
 body {
-  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-family: var(--font-cascadia-code), Arial, Helvetica, sans-serif;
 
   p {
-    font-family: var(--font-inter);
+    font-family: var(--font-cascadia-code);
   }
 
   h1,

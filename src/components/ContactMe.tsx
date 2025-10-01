@@ -26,10 +26,7 @@ export default function ContactMe() {
   }
 
   return (
-    <section
-      aria-label="Contact options"
-      className="mx-auto max-w-screen-xl px-6 lg:px-8"
-    >
+    <section aria-label="Contact options">
       <div className="flex justify-center gap-6 sm:gap-8 flex-wrap">
         <SquareTile
           title="Email"
@@ -63,7 +60,7 @@ export default function ContactMe() {
             />
           }
           modalClassName="!max-w-[80vw] sm:!max-w-[60vw]"
-          modalContentClassName="!h-[40vh]"
+          modalContentClassName="!h-[60vh]"
           modalContent={() => (
             <iframe
               src={MAP_EMBED_URL}
@@ -95,7 +92,7 @@ export default function ContactMe() {
             />
           }
           modalClassName="!max-w-[80vw] sm:!max-w-[60vw]"
-          modalContentClassName="!h-[50vh] sm:!max-w-[80vw]"
+          modalContentClassName="!h-[80vh] sm:!max-w-[80vw]"
           modalContent={() => {
             return (
               <iframe

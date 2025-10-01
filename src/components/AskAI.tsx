@@ -96,7 +96,7 @@ export default function AskAI() {
   const disabled = loading;
 
   return (
-    <section className="mx-auto max-w-screen-xl px-8 sm:px-6 lg:px-8">
+    <section aria-label="Ask AI">
       {/* Answer / Error */}
       <div
         className="mx-auto max-w-xl rounded-xl bg-white dark:bg-indigo-100 shadow-sm ring-1 ring-gray-200"

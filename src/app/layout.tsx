@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import { Pixelify_Sans, Inter } from "next/font/google";
+import { Pixelify_Sans, Inter, Cascadia_Code } from "next/font/google";
 
 import "../styles/globals.css";
 
@@ -18,6 +18,11 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const cascadiaCode = Cascadia_Code({
+  subsets: ["latin"],
+  variable: "--font-cascadia-code",
+});
+
 export const metadata: Metadata = {
   title: "Anirudh Chintha - Software Engineer",
   description:
@@ -31,7 +36,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${pixel.variable} ${inter.variable} antialiased`}>
+      <body
+        className={`${pixel.variable} ${inter.variable} ${cascadiaCode.variable} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
