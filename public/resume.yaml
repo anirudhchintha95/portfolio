@@ -1,0 +1,153 @@
+name: "Anirudh Seshasai Chintha"
+title: "Software Engineer"
+location: "Jersey City, New Jersey, USA"
+email: "anirudhchintha95@gmail.com"
+phone: "+1 (551) 344-6693"
+linkedin: "https://www.linkedin.com/in/anirudh-chintha/"
+summary: >
+  Software Engineer with 6+ years of full-stack experience in React, Angular, NodeJS,
+  Ruby on Rails, PostgreSQL, and AWS. Strong focus on scalable design, performance,
+  and seamless user experience across web and mobile platforms.
+
+education:
+  - institution: "Stevens Institute of Technology"
+    degree: "Master of Science in Computer Science"
+    location: "Hoboken, NJ"
+    graduation: "May 2024"
+
+  - institution: "Birla Institute of Technology and Science, Hyderabad"
+    degree: "Master of Science and Technology in Information Systems"
+    location: "Hyderabad, India"
+    graduation: "2016"
+
+certifications:
+  - title: "AWS Certified Developer - Associate"
+    issued_by: "Amazon Web Services"
+    credential_id: "AWS05491062"
+    issued_date: "Jan 2024"
+    link: "https://www.credly.com/badges/b5210351-1c6a-403e-8d34-1086571d6f5f/linked_in_profile"
+
+skills:
+  frontend: [React, Angular, VueJS, TypeScript, HTML, CSS]
+  frontend_libraries: [TailwindCSS, Material-UI]
+  backend: [NodeJS, Ruby on Rails]
+  backend_libraries: [Express]
+  databases: [PostgreSQL, Redis]
+  devops_cloud: [AWS, Docker, Jenkins]
+  testing: [Jest, React Testing Library, Angular Testing Library]
+  practices: [Agile, Accessibility, CI/CD, i18n]
+
+experience_by_technology_totals:
+  React:
+    iCIMS:
+      internship: "0.4 yr"
+    WAL: "2 yr"
+    stevens: "0.5 yr"
+    projects: "0.5 yr"
+  Angular:
+    iCIMS: "current"
+  VueJS:
+    WAL: "1.5 yr"
+  React_Native:
+    WAL: "0.8 yr"
+  NodeJS:
+    iCIMS: "current"
+    WAL: "2.0 yr"
+    projects: "0.5 yr"
+  NextJS:
+    projects: "0.5 yr"
+  Ruby_on_Rails:
+    WAL: "3.0 yr"
+  PostgreSQL:
+    WAL: "3.0 yr"
+    stevens: "0.5 yr"
+  MongoDB:
+    stevens: "0.5 yr"
+  Redis:
+    iCIMS: "0.5 yr"
+    WAL: "1 yr"
+  AWS:
+    WAL: "1.0 yr"
+  Docker:
+    iCIMS: "0.5 yr"
+    WAL: "0.5 yr"
+  Jenkins:
+    iCIMS: "1.0 yr"
+
+experience:
+  - company: "iCIMS Inc."
+    title: "Software Engineer"
+    location: "Holmdel, NJ"
+    internship:
+      period: "5 Jun 2023 - 17 May 2024"
+    period: "from 24 Jun 2024"
+    technologies: [Angular, NodeJS, TypeScript, Jenkins, Redis, PostgreSQL, AWS]
+    highlights:
+      - "Separated frontend and backend monorepo into individual Jenkins pipelines, reducing frontend deploy time by 30%."
+      - "Upgraded Angular from v15 to v18 introducing Signals for state management and improved reactivity."
+      - "Implemented Angular Testing Library, improving test readability and reducing post-deployment bugs."
+      - "Improved UX for CRM→CXM migration, modernizing filter UIs and optimizing campaign workflows."
+      - "Contributed to accessibility enhancements and ensured alignment with WCAG standards."
+
+  - company: "West Agile Labs Pvt Ltd"
+    title: "Senior Software Development Engineer"
+    location: "Hyderabad, India"
+    period: "1 Jul 2021 - 31 Jul 2022"
+    technologies: [React, React Native, NodeJS, PostgreSQL, AWS, Jest]
+    highlights:
+      - "Led development of a ReactJS-based order management system increasing sales by 30% through improved UX and streamlined workflows."
+      - "Built optimized PostgreSQL queries reducing execution time by 15%."
+      - "Integrated AWS services (Lambda, S3) to streamline serverless deployments and data processing pipelines."
+      - "Introduced Jest and React Testing Library ensuring comprehensive unit test coverage, reducing production bugs by 25%."
+      - "Collaborated closely with clients to define scalable API contracts improving development velocity."
+
+  - company: "West Agile Labs Pvt Ltd"
+    title: "Software Development Engineer"
+    location: "Hyderabad, India"
+    period: "1 Jun 2017 - 30 Jun 2021"
+    technologies: [Ruby on Rails, VueJS, PostgreSQL, AWS, Docker]
+    highlights:
+      - "Developed backend APIs using Ruby on Rails enhancing system functionality and reliability."
+      - "Expanded to full-stack development using VueJS improving frontend performance and load times by 15%."
+      - "Led a 6-member team delivering backend APIs and an internal Ruby gem for enterprise password policies, improving security compliance by 30%."
+      - "Built CI/CD pipelines using Docker and Jenkins, streamlining deployments and version control."
+      - "Enhanced API performance through query optimization and schema design improvements."
+
+projects:
+  list:
+    - name: "AI-Powered Portfolio"
+      description: >
+        Portfolio site built with Next.js, React, and TailwindCSS.
+        Features an AI-powered Q&A section using OpenAI APIs to answer questions about my résumé in real time.
+      technologies: [Next.js, React, TailwindCSS, OpenAI API, Vercel]
+      highlights:
+        - "Implemented assistant-thread design to answer visitor queries dynamically."
+        - "Built dark/light themes with smooth transitions using Next Themes."
+        - "Deployed on Vercel with API route caching and token-efficient model responses."
+      links:
+        deployed: https://portfolio-seven-xi-b86hmrrr59.vercel.app/
+
+    - name: "React Tiny Store (npm package)"
+      description: >
+        Lightweight state-management library published as @acoolhq/react-tiny-store,
+        providing synchronous React store updates with minimal overhead.
+      technologies: [React, TypeScript, Vite, Typedoc]
+      highlights:
+        - "Created composable API with createContextSync() for predictable store sync behavior."
+        - "Authored detailed TypeDoc-based documentation and markdown examples."
+        - "Implemented local store subscriptions for reactive UIs without external dependencies."
+      links:
+        documentation: https://acoolhq.github.io/react-tiny-store/
+        github: https://github.com/acoolhq/react-tiny-store
+        npm: https://www.npmjs.com/package/@acoolhq/react-tiny-store
+
+awards:
+  - name: "Mountain Mover Award"
+    issuer: "West Agile Labs"
+    description: "Recognized for exceptional technical contribution and consistent delivery on key client projects."
+
+contact:
+  email: "anirudhchintha95@gmail.com"
+  linkedin: "https://www.linkedin.com/in/anirudh-chintha/"
+  location: "Jersey City, NJ"
+  phone: "+1 (551) 344-6693"

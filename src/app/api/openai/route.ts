@@ -32,11 +32,15 @@ export async function POST(req: NextRequest) {
         content: [
           {
             type: "input_text",
-            text: 'You are "Anirudh\'s Profile Answerer". Use ONLY the provided resume text. If unknown, say "I don\'t know". Keep answers ≤40 words. Dont give answers verbatim. Be concise and precise. If asked for any specific frontend framework experience, along with mentioning that, also mention that combined FE experience is there',
+            text: `today's date is ${new Date()}`,
           },
           {
             type: "input_text",
-            text: `RESUME_BEGIN\n${resumeText}\nRESUME_END`,
+            text: process.env.SYSTEM_PROMPT!,
+          },
+          {
+            type: "input_text",
+            text: `${resumeText}`,
           },
         ],
       },
