@@ -4,7 +4,7 @@ import ThemeToggle from "./general/ThemeToggle";
 
 const Header = () => {
   return (
-    <header className="bg-gradient-to-r from-indigo-50 via-white to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900 sticky top-0 z-50 shadow-sm">
+    <header className="bg-gradient-to-r from-indigo-50 via-white to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900 sticky top-0 z-50 shadow-md">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 flex justify-center pl-[36px] sm:pl-0 sm:justify-start sm:items-center sm:gap-12">

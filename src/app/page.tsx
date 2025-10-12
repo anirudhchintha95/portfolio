@@ -8,6 +8,7 @@ import ContactMe from "@/components/ContactMe";
 import GenAISearch from "@/components/AskAI";
 import TopSection from "@/components/TopSection";
 import Skills from "@/components/Skills";
+import Recommendations from "@/components/Recommendation";
 
 export default function Home() {
   return (
@@ -34,6 +35,11 @@ export default function Home() {
       <div id="contact">
         <Separator text="Let's connect!" />
         <ContactMe />
+      </div>
+
+      <div id="recommendations">
+        <Separator text="What people said about me?" />
+        <Recommendations />
       </div>
 
       <div id="thank-you">

@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
           },
           {
             type: "input_text",
-            text: `${resumeText}`,
+            text: `RESUME_BEGIN\n${resumeText}\nRESUME_END`,
           },
         ],
       },

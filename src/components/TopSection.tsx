@@ -2,9 +2,6 @@
 
 import Image from "next/image";
 import Ani from "@/../public/Ani.jpeg";
-import { LINKED_IN } from "@/constants";
-
-import SocialButton from "./general/SocialButton";
 import Button from "./general/Button";
 
 const TopSection = () => {
@@ -45,10 +42,7 @@ const TopSection = () => {
 
             {/* buttons */}
             <div className="flex flex-row gap-2">
-              <Button href="#contact" className="font-pixel">
-                {"Let's connect"}
-              </Button>
-              <SocialButton {...LINKED_IN} primary />
+              <Button href="#contact">{"Let's connect"} &rarr;</Button>
             </div>
 
             {/* right line */}
@@ -58,8 +52,8 @@ const TopSection = () => {
       </div>
 
       {/* RIGHT PORTRAIT */}
-      <div className="flex justify-end items-center sm:p-12 lg:px-16 lg:py-24 !pl-0">
-        <div className="relative w-full h-64 sm:w-72 sm:h-[28rem] rounded-xl overflow-hidden shadow-lg">
+      <div className="flex justify-end items-center mt-4 sm:mt-0 sm:p-12 lg:px-16 lg:py-24 !pl-0">
+        <div className="relative w-full h-64 sm:w-72 sm:h-[28rem] rounded-xl overflow-hidden shadow-md">
           <Image
             alt="Anirudh Chintha"
             src={Ani}

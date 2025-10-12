@@ -54,7 +54,7 @@ export default function SquareTile({
         ref={tileRef}
         onClick={handleClick}
         className={[
-          isSmallVariant ? "w-[4rem] sm:w-[7rem]" : "w-[7rem] sm:w-[12rem]",
+          isSmallVariant ? "w-[4rem] sm:w-[8rem]" : "w-[7rem] sm:w-[12rem]",
           "cursor-pointer",
           "aspect-square shadow-md",
           "cursor-pointer sm:cursor-auto relative rounded-2xl p-[1px]",

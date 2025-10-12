@@ -32,7 +32,7 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantMappings: Record<ButtonVariants, string> = {
   primary:
-    "border-indigo-600 bg-indigo-600 text-sm font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-300",
+    "border-indigo-600 bg-indigo-600 text-sm font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-300 dark:border-indigo-600",
   outline:
     // bg
     "bg-gradient-to-br from-indigo-500/30 via-indigo-400/20 to-indigo-500/30" +
@@ -41,7 +41,7 @@ const variantMappings: Record<ButtonVariants, string> = {
     // border and text
     "border-indigo-600 text-sm font-medium text-indigo-600 hover:bg-indigo-50" +
     // dark mode
-    "dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700",
+    "dark:bg-gray-800 dark:text-white dark:hover:bg-indigo-600",
 };
 
 const Button = ({

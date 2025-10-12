@@ -99,7 +99,7 @@ export default function AskAI() {
     <section aria-label="Ask AI">
       {/* Answer / Error */}
       <div
-        className="mx-auto max-w-xl rounded-xl bg-white dark:bg-indigo-100 shadow-sm ring-1 ring-gray-200"
+        className="mx-auto max-w-xl rounded-xl bg-white dark:bg-indigo-100 shadow-md ring-1 ring-gray-200"
         aria-live="polite"
         aria-busy={loading ? "true" : "false"}
       >
@@ -157,8 +157,8 @@ export default function AskAI() {
 
       {/* Ask AI form */}
       <form
+        className="mx-auto mt-6 max-w-xl flex items-center border pl-4 gap-2 bg-white dark:bg-indigo-100 border-gray-500/30 h-[46px] rounded-full overflow-hidden w-full shadow-md"
         onSubmit={onSubmit}
-        className="mx-auto mt-6 flex max-w-xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-center"
       >
         <label htmlFor="Question" className="relative flex-1">
           <span className="sr-only">Question</span>
@@ -167,11 +167,6 @@ export default function AskAI() {
             id="Question"
             type="text"
             placeholder="e.g., What backend frameworks has he used?"
-            className={`h-12 w-full rounded-xl bg-white dark:bg-indigo-100 px-4 shadow-sm outline-none focus:ring-2 focus:ring-indigo-300 ${
-              qError ? "ring-2 ring-red-400" : "ring-1 ring-gray-300"
-            } disabled:cursor-not-allowed disabled:opacity-60 dark:text-gray-800 ${
-              !!q ? "pr-[40px]" : ""
-            }`}
             autoComplete="off"
             value={q}
             onChange={setQuestion}
@@ -179,28 +174,13 @@ export default function AskAI() {
             disabled={disabled}
             aria-invalid={qError ? "true" : "false"}
             aria-describedby={qError ? "question-error" : undefined}
+            className="w-full h-full outline-none text-sm text-gray-500 dark:text-gray-800 shadow-none"
           />
-          {!!q && (
-            <CloseButton
-              className="absolute right-[20px] top-[20px]"
-              onClick={clearInput}
-              aria-label="Clear text"
-              title="Clear text"
-            />
-          )}
-          {qError && (
-            <p id="question-error" className="mt-1 text-xs text-red-600">
-              {qError}
-            </p>
-          )}
         </label>
-
         <Button
-          type="submit"
-          className="h-12 border-indigo-600 bg-indigo-600 px-6 text-sm font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-300 disabled:cursor-not-allowed disabled:opacity-60"
           disabled={disabled || !q.trim()}
-          aria-label="Ask AI"
-          title="Ask AI"
+          type="submit"
+          className="bg-indigo-500 w-32 h-9 !rounded-full text-sm text-white mr-[5px]"
         >
           {loading ? "Thinking…" : "Ask AI"}
         </Button>
@@ -221,7 +201,7 @@ export default function AskAI() {
             }}
             variant="outline"
             disabled={disabled}
-            className="!rounded-full !border-gray-200 !bg-white dark:!bg-indigo-100 px-3 py-1.5 text-xs !text-gray-700 !hover:bg-gray-50"
+            className="!rounded-full px-3 py-1.5 text-xs"
             title={prompt}
           >
             {prompt}
