@@ -1,8 +1,9 @@
 "use client";
 
-import { ReactNode, useMemo, useRef, useState } from "react";
+import React, { ReactNode, useMemo, useState } from "react";
 
 import Modal from "./Modal";
+import HoverGlowCard from "./HoverGlow";
 
 export interface TileProps {
   title: string;
@@ -37,7 +38,6 @@ export default function SquareTile({
   modalContent?: () => ReactNode;
 }) {
   const [open, setOpen] = useState(false);
-  const tileRef = useRef<HTMLDivElement>(null);
 
   const isSmallVariant = useMemo(() => variant === "small", [variant]);
 
@@ -51,7 +51,6 @@ export default function SquareTile({
     <>
       {/* TILE */}
       <div
-        ref={tileRef}
         onClick={handleClick}
         className={[
           isSmallVariant ? "w-[4rem] sm:w-[8rem]" : "w-[7rem] sm:w-[12rem]",
@@ -63,7 +62,7 @@ export default function SquareTile({
           "group font-pixel",
         ].join(" ")}
       >
-        <div
+        <HoverGlowCard
           className={[
             "flex h-full w-full flex-col items-center justify-center gap-2 rounded-2xl shadow-sm relative overflow-hidden",
             "transition-colors duration-200",
@@ -119,7 +118,7 @@ export default function SquareTile({
               </div>
             )}
           </div>
-        </div>
+        </HoverGlowCard>
       </div>
 
       <Modal

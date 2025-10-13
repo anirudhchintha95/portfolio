@@ -22,6 +22,7 @@
       "@/*": ["./src/*"],
       "@lib/*": ["./src/lib/*"],
       "@svg/*": ["./public/svg/*"],
+      "@public/*": ["./public/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

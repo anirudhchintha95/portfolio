@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import QuoteSVG from "@svg/quote.svg";
 import React from "react";
+import HoverGlowCard from "./general/HoverGlow";
 
 const Avatar = ({ name }: { name: string }) => (
   <div className="h-12 w-12 shrink-0 rounded-full flex items-center justify-center dark:bg-white/90 bg-gray-800/90 dark:text-gray-600 text-gray-300">
@@ -55,7 +56,7 @@ export default function Recommendations() {
     <section aria-label="Recommendations" className="sm:px-12 lg:px-16">
       <div className="flex flex-wrap justify-center gap-5 text-left">
         {RECOMMENDATIONS.map(({ experience, name, role, link }) => (
-          <div
+          <HoverGlowCard
             className="w-80 flex flex-col items-start justify-between shadow-md p-5 rounded-lg bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm cursor-pointer"
             key={name}
             onClick={() =>
@@ -91,7 +92,7 @@ export default function Recommendations() {
                 </p>
               </div>
             </div>
-          </div>
+          </HoverGlowCard>
         ))}
       </div>
     </section>

@@ -2,6 +2,33 @@ import Image from "next/image";
 import AC from "@/../public/AC.png";
 import ThemeToggle from "./general/ThemeToggle";
 
+const NAV_ITEMS = [
+  {
+    label: "About",
+    href: "#about",
+  },
+  {
+    label: "Ask AI",
+    href: "#ask-ai",
+  },
+  {
+    label: "Skills",
+    href: "#skills",
+  },
+  {
+    label: "History",
+    href: "#history",
+  },
+  {
+    label: "Projects",
+    href: "#projects",
+  },
+  {
+    label: "Contact",
+    href: "#contact",
+  },
+];
+
 const Header = () => {
   return (
     <header className="bg-gradient-to-r from-indigo-50 via-white to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900 sticky top-0 z-50 shadow-md">
@@ -21,59 +48,16 @@ const Header = () => {
           <div className="sm:flex sm:items-center">
             <nav aria-label="Global" className="hidden sm:block">
               <ul className="flex items-center gap-6 text-sm">
-                <li>
-                  <a
-                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="#"
-                  >
-                    About
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="#"
-                  >
-                    Careers
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="#"
-                  >
-                    History
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="#"
-                  >
-                    Services
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="#"
-                  >
-                    Projects
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="#"
-                  >
-                    Blog
-                  </a>
-                </li>
+                {NAV_ITEMS.map(({ label, href }) => (
+                  <li key={label}>
+                    <a
+                      className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                      href={href}
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </nav>
             <ThemeToggle />

@@ -9,6 +9,7 @@ import GenAISearch from "@/components/AskAI";
 import TopSection from "@/components/TopSection";
 import Skills from "@/components/Skills";
 import Recommendations from "@/components/Recommendation";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
@@ -35,9 +36,14 @@ export default function Home() {
         <Skills />
       </div>
 
-      <div id="contact" className="scroll-mt-12">
-        <Separator hrefKey="contact" text="Let's connect!" />
-        <ContactMe />
+      <div id="history" className="scroll-mt-12">
+        <Separator hrefKey="history" text="History" />
+        <section className="text-center uppercase">Soon to be added...</section>
+      </div>
+
+      <div id="projects" className="scroll-mt-12">
+        <Separator hrefKey="projects" text="Projects" />
+        <Projects />
       </div>
 
       <div id="recommendations" className="scroll-mt-12">
@@ -46,6 +52,11 @@ export default function Home() {
           text="What did people say about me?"
         />
         <Recommendations />
+      </div>
+
+      <div id="contact" className="scroll-mt-12">
+        <Separator hrefKey="contact" text="Let's connect!" />
+        <ContactMe />
       </div>
 
       <div id="thank-you" className="scroll-mt-12">
