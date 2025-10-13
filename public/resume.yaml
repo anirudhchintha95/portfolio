@@ -31,12 +31,13 @@ certifications:
 skills:
   frontend: [React, Angular, VueJS, TypeScript, HTML, CSS]
   frontend_libraries: [TailwindCSS, Material-UI]
-  backend: [NodeJS, Ruby on Rails]
+  backend: [NodeJS, Ruby on Rails, Flask]
   backend_libraries: [Express]
   databases: [PostgreSQL, Redis]
   devops_cloud: [AWS, Docker, Jenkins]
   testing: [Jest, React Testing Library, Angular Testing Library]
   practices: [Agile, Accessibility, CI/CD, i18n]
+  languages: [TypeScript, JavaScript, Python, Ruby]
 
 experience_by_technology_totals:
   React:
@@ -59,6 +60,8 @@ experience_by_technology_totals:
     projects: "0.5 yr"
   Ruby_on_Rails:
     WAL: "3.0 yr"
+  Flask:
+    stevens: "0.1 yr"
   PostgreSQL:
     WAL: "3.0 yr"
     stevens: "0.5 yr"

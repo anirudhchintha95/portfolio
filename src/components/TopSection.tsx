@@ -19,7 +19,7 @@ const TopSection = () => {
       />
 
       {/* LEFT CONTENT */}
-      <div className="flex-1 sm:p-12 lg:px-16 lg:py-24 flex items-center">
+      <div className="flex-1 sm:p-12 lg:px-16 lg:py-24 flex items-center my-4 sm:mt-0 ">
         <div className="text-left flex flex-col items-center sm:items-start z-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-indigo-100">
             Hi, I am
@@ -52,7 +52,7 @@ const TopSection = () => {
       </div>
 
       {/* RIGHT PORTRAIT */}
-      <div className="flex justify-end items-center mt-4 sm:mt-0 sm:p-12 lg:px-16 lg:py-24 !pl-0">
+      <div className="flex justify-end items-center sm:p-12 lg:px-16 lg:py-24 !pl-0">
         <div className="relative w-full h-64 sm:w-72 sm:h-[28rem] rounded-xl overflow-hidden shadow-md">
           <Image
             alt="Anirudh Chintha"
