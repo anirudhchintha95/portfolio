@@ -38,7 +38,7 @@ export default function Home() {
       </div>
 
       <div id="recommendations">
-        <Separator text="What people said about me?" />
+        <Separator text="What did people say about me?" />
         <Recommendations />
       </div>
 

@@ -23,6 +23,10 @@ const iconClassName = "text-indigo-100 h-4 w-4 brightness-200";
 
 const SKILLS: TileProps[] = [
   {
+    title: "React",
+    icon: <FaReact className={iconClassName} />,
+  },
+  {
     title: "Javascript",
     icon: <FaJsSquare className={iconClassName} />,
   },
@@ -33,10 +37,6 @@ const SKILLS: TileProps[] = [
   {
     title: "Angular",
     icon: <FaAngular className={iconClassName} />,
-  },
-  {
-    title: "React",
-    icon: <FaReact className={iconClassName} />,
   },
   {
     title: "NodeJS",
