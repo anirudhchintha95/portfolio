@@ -56,8 +56,14 @@ export default function Recommendations() {
       <div className="flex flex-wrap justify-center gap-5 text-left">
         {RECOMMENDATIONS.map(({ experience, name, role, link }) => (
           <div
-            className="w-80 flex flex-col items-start justify-between shadow-md p-5 rounded-lg bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm"
+            className="w-80 flex flex-col items-start justify-between shadow-md p-5 rounded-lg bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm cursor-pointer"
             key={name}
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/in/anirudh-chintha/details/recommendations",
+                "_blank"
+              )
+            }
           >
             <div>
               <Image
@@ -76,7 +82,7 @@ export default function Recommendations() {
                 <a
                   target="_blank"
                   href={link}
-                  className="text-lg text-gray-900 dark:text-white font-mediumn hover:underline-offset-4 hover:underline"
+                  className="text-lg text-gray-900 dark:text-white font-mediumn underline-offset-4 underline"
                 >
                   {name}
                 </a>
