@@ -15,7 +15,7 @@ const RECOMMENDATIONS = [
   {
     experience: [
       "The team relied on his experience to get a variety of features delivered on time and with quality.",
-      "Any engineering team willbenefit from having Ani in their ranks.",
+      "Any engineering team will benefit from having Ani in their ranks.",
     ].join(" "),
     name: "Nishad Patel",
     role: "Engineering Manager",
