@@ -180,7 +180,7 @@ export default function AskAI() {
         <Button
           disabled={disabled || !q.trim()}
           type="submit"
-          className="bg-indigo-500 w-32 h-9 !rounded-full text-sm text-white mr-[5px]"
+          className="bg-indigo-500 w-24 h-9 !rounded-full text-sm text-white mr-[5px]"
         >
           {loading ? "Thinking…" : "Ask AI"}
         </Button>
