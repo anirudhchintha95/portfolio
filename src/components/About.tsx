@@ -5,9 +5,9 @@ import { CgPerformance } from "react-icons/cg";
 const ABOUT_CONTENT = [
   {
     key: "full-stack",
-    heading: "Full-stack experience",
+    heading: "Full-stack Development Expertise",
     description:
-      "6+ years of full-stack experience in React, Angulr, NodeJS, PostgreSQL and cloud technologies",
+      "Building scalable applications with React, NodeJS, PostgreSQL, and AWS across the full development stack.",
     isFirst: true,
     icon: (
       <HiMiniSquare3Stack3D className="text-amber-500 dark:text-indigo-500 text-6xl" />
@@ -15,14 +15,16 @@ const ABOUT_CONTENT = [
   },
   {
     key: "prod-grade",
-    heading: "Production-grade",
-    description: "Delivered and maintained reliable production applications",
+    heading: "Production-grade Engineering",
+    description:
+      "Delivering secure, maintainable systems built for real-world reliability and continuous deployment.",
     icon: <GiGears className="text-amber-500 dark:text-indigo-500 text-6xl" />,
   },
   {
-    key: "perf-focused",
-    heading: "Performance-focused",
-    description: "Experience in enhancing performance and user experience",
+    key: "optimized",
+    heading: "Performance & Scalability Driven",
+    description:
+      "Enhancing performance, scalability, and user experience through efficient architecture and clean code.",
     isLast: true,
     icon: (
       <CgPerformance className="text-amber-500 dark:text-indigo-500 text-6xl" />
