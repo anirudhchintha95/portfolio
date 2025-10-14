@@ -12,6 +12,13 @@ export interface TileProps {
   modalActions?: Action[];
 }
 
+export interface SquareTileProps extends TileProps {
+  modalClassName?: string;
+  modalContentClassName?: string;
+  variant?: "normal" | "small";
+  modalContent?: () => ReactNode;
+}
+
 type Action = {
   label: string;
   href: string;
@@ -29,12 +36,7 @@ export default function SquareTile({
   modalClassName,
   modalContentClassName,
   modalContent,
-}: TileProps & {
-  modalClassName?: string;
-  modalContentClassName?: string;
-  variant?: "normal" | "small";
-  modalContent?: () => ReactNode;
-}) {
+}: SquareTileProps) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
 

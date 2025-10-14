@@ -1,4 +1,4 @@
-import SquareTile, { TileProps } from "./general/SquareTile";
+import Image from "next/image";
 import { FaJsSquare } from "react-icons/fa";
 import { SiTypescript } from "react-icons/si";
 import { FaAngular } from "react-icons/fa";
@@ -18,6 +18,13 @@ import { FaJenkins } from "react-icons/fa";
 import { SiRedis } from "react-icons/si";
 import { FaPython } from "react-icons/fa";
 import { DiRuby } from "react-icons/di";
+
+import AWSDeveloperAssociate from "@public/aws-dev-associate.png";
+import SquareTile, { TileProps } from "./general/SquareTile";
+import HoverGlowCard from "./general/HoverGlow";
+import Button from "./general/Button";
+import { AWS_CERTIFIED_DEVELOPER_ASSOCIATE } from "@/constants";
+import { useToast } from "./general/ToastContext";
 
 const iconClassName = "text-indigo-100 h-4 w-4 brightness-200";
 
@@ -100,6 +107,88 @@ const SKILLS: TileProps[] = [
   },
 ];
 
+type Certification = {
+  title: string;
+  issued: string;
+  expires: string;
+  credentialId: string;
+  href: string;
+  blurb: string;
+};
+
+const CERTIFICATIONS: Certification[] = [AWS_CERTIFIED_DEVELOPER_ASSOCIATE];
+
+function CertificationCard({
+  title,
+  issued,
+  expires,
+  credentialId,
+  href,
+  blurb,
+}: Certification) {
+  const { showToast } = useToast();
+
+  const copyCredentialId = () => {
+    navigator.clipboard
+      .writeText(credentialId)
+      .then(() => {
+        showToast("Credential copied!");
+      })
+      .catch(() => {});
+  };
+
+  return (
+    <HoverGlowCard className="w-full max-w-sm rounded-2xl border border-gray-200/70 bg-white/95 p-6 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg dark:border-gray-600/60 dark:bg-gray-800/95">
+      <div className="flex items-start gap-3">
+        <Image
+          src={AWSDeveloperAssociate}
+          alt="AWS Developer Assoicate"
+          className="inline-flex h-10 w-10"
+        />
+        <div>
+          <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+            {title}
+          </h4>
+          <p className="text-xs font-medium uppercase tracking-wide text-indigo-500 dark:text-indigo-300">
+            {issued} · {expires}
+          </p>
+        </div>
+      </div>
+
+      <p className="mt-4 text-sm text-gray-700 dark:text-neutral-200">
+        {blurb}
+      </p>
+
+      <div className="mt-4 text-xs font-medium text-gray-500 dark:text-neutral-400">
+        <p className="uppercase tracking-wide text-gray-500 dark:text-neutral-300">
+          Credential ID
+        </p>
+        <div className="mt-1 inline-flex items-center gap-2">
+          <code className="rounded-md bg-gray-100 px-2 py-0.5 font-mono text-gray-700 dark:bg-gray-700 dark:text-gray-100">
+            {credentialId}
+          </code>
+          <button
+            type="button"
+            onClick={copyCredentialId}
+            className="text-[0.65rem] font-semibold uppercase tracking-wide text-indigo-500 transition hover:text-indigo-600 dark:text-indigo-300 cursor-pointer"
+          >
+            Copy
+          </button>
+        </div>
+      </div>
+
+      <Button
+        href={href}
+        target="_blank"
+        className="mt-5 w-full justify-center"
+        variant="outline"
+      >
+        Verify on Credly ↗
+      </Button>
+    </HoverGlowCard>
+  );
+}
+
 export default function Skills() {
   return (
     <section aria-label="Skills">
@@ -107,6 +196,17 @@ export default function Skills() {
         {SKILLS.map(({ title, icon }) => (
           <SquareTile key={title} title={title} icon={icon} variant="small" />
         ))}
+      </div>
+
+      <div className="mt-10 flex flex-col items-center gap-4">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-neutral-400">
+          Certifications
+        </h3>
+        <div className="flex flex-wrap justify-center gap-6">
+          {CERTIFICATIONS.map((cert) => (
+            <CertificationCard key={cert.title} {...cert} />
+          ))}
+        </div>
       </div>
     </section>
   );

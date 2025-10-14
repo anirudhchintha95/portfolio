@@ -31,7 +31,7 @@ const HoverGlowCard = ({
     >
       <div
         className={`pointer-events-none blur-2xl rounded-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-300 size-20 absolute z-0 transition-opacity duration-500 ${
-          visible ? "opacity-100" : "opacity-0"
+          visible ? "opacity-0 sm:opacity-100" : "opacity-0"
         }`}
         style={{ top: position.y - 30, left: position.x - 30 }}
       />

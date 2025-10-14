@@ -1,6 +1,9 @@
 "use client";
 
 import Image from "next/image";
+
+import { AWS_CERTIFIED_DEVELOPER_ASSOCIATE } from "@/constants";
+import AWSDeveloperAssociate from "@public/aws-dev-associate.png";
 import Ani from "@/../public/Ani.jpeg";
 import Button from "./general/Button";
 
@@ -35,6 +38,33 @@ const TopSection = () => {
             Accomplished Full Stack Developer. Turning ideas into reliable
             products
           </p>
+
+          <div className="mt-4 w-full">
+            <a
+              href="https://www.credly.com/badges/b5210351-1c6a-403e-8d34-1086571d6f5f"
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-3 rounded-full border border-gray-300/70 bg-white/80 px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-gray-600/60 dark:bg-gray-800/80 dark:text-gray-100"
+            >
+              <Image
+                src={AWSDeveloperAssociate}
+                alt={AWS_CERTIFIED_DEVELOPER_ASSOCIATE.title}
+                className="inline-flex h-7 w-7"
+              />
+              <span className="flex flex-col gap-0.5 leading-tight text-left">
+                <span className="text-[0.8rem] font-semibold text-gray-800 dark:text-gray-50">
+                  {AWS_CERTIFIED_DEVELOPER_ASSOCIATE.title}
+                </span>
+                <span className="text-[0.7rem] font-medium text-gray-500 dark:text-gray-300">
+                  {AWS_CERTIFIED_DEVELOPER_ASSOCIATE.issued} •{" "}
+                  {AWS_CERTIFIED_DEVELOPER_ASSOCIATE.expires}
+                </span>
+              </span>
+              <span className="ml-auto text-[0.65rem] font-semibold uppercase tracking-wide text-indigo-500 group-hover:text-indigo-600 dark:text-indigo-300">
+                Verify ↗
+              </span>
+            </a>
+          </div>
 
           <div className="mt-4 flex items-center gap-2 w-full">
             {/* left line */}
