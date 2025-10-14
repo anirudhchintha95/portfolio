@@ -1,5 +1,6 @@
 "use client";
 
+import { ReactNode } from "react";
 import Button from "./Button";
 import CloseButton from "./CloseButton";
 
@@ -24,7 +25,7 @@ export default function Modal({
 }: {
   open: boolean;
   onClose: () => void;
-  title: string;
+  title: string | ReactNode;
   icon?: React.ReactNode;
   children?: React.ReactNode;
   actions?: ModalAction[];
@@ -35,7 +36,7 @@ export default function Modal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 m-0"
       onClick={onClose}
     >
       <div

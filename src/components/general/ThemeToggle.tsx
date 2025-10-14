@@ -29,7 +29,7 @@ export default function ThemeToggle() {
       {/* Desktop pill toggle */}
       <div
         className={[
-          "hidden sm:inline-flex ml-2 relative w-36 h-10 rounded-full overflow-hidden",
+          "hidden sm:inline-flex ml-4 relative w-36 h-10 rounded-full overflow-hidden",
           "border border-gray-300 dark:border-gray-600 bg-white/70 dark:bg-gray-800/70",
           "p-1",
         ].join(" ")}

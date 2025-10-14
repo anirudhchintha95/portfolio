@@ -10,7 +10,7 @@ const ABOUT_CONTENT = [
       "Building scalable applications with React, NodeJS, PostgreSQL, and AWS across the full development stack.",
     isFirst: true,
     icon: (
-      <HiMiniSquare3Stack3D className="text-amber-500 dark:text-indigo-500 text-6xl" />
+      <HiMiniSquare3Stack3D className="text-amber-500 dark:text-indigo-500 text-6xl group-hover:scale-120 transition-all" />
     ),
   },
   {
@@ -18,7 +18,7 @@ const ABOUT_CONTENT = [
     heading: "Production-grade Engineering",
     description:
       "Delivering secure, maintainable systems built for real-world reliability and continuous deployment.",
-    icon: <GiGears className="text-amber-500 dark:text-indigo-500 text-6xl" />,
+    icon: <GiGears className="text-amber-500 dark:text-indigo-500 text-6xl group-hover:scale-120 transition-all" />,
   },
   {
     key: "optimized",
@@ -27,7 +27,7 @@ const ABOUT_CONTENT = [
       "Enhancing performance, scalability, and user experience through efficient architecture and clean code.",
     isLast: true,
     icon: (
-      <CgPerformance className="text-amber-500 dark:text-indigo-500 text-6xl" />
+      <CgPerformance className="text-amber-500 dark:text-indigo-500 text-6xl group-hover:scale-120 transition-all" />
     ),
   },
 ];
@@ -40,7 +40,7 @@ const About = () => (
           <div
             key={key}
             className={[
-              "py-10 lg:py-0 lg:px-10 border-slate-300 dark:border-amber-500 flex flex-row lg:flex-col items-center gap-4 lg:items-start lg:gap-0",
+              "group py-10 lg:py-0 lg:px-10 border-slate-300 dark:border-amber-500 flex flex-row lg:flex-col items-center gap-4 lg:items-start lg:gap-0",
               isLast ? "" : "lg:border-r lg:border-b-0",
               isFirst ? "!py-0" : "",
               isLast ? "!py-0" : "",

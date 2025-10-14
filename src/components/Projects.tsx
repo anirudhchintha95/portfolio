@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { TiArrowRight } from "react-icons/ti";
 import Image, { StaticImageData } from "next/image";
 
@@ -15,12 +15,23 @@ const ProjectTile = ({
   project: ProjectItem;
 }) => {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const handleClose = () => {
+    setOpen(false);
+    queueMicrotask(() => triggerRef.current?.focus());
+  };
 
   return (
     <>
-      <div
+      <button
+        ref={triggerRef}
+        type="button"
+        aria-haspopup="dialog"
+        aria-expanded={open}
+        aria-label={`Open details for ${title}`}
         className={[
-          "relative group",
+          "relative group text-left",
           // width and height stuff
           "w-full sm:w-56 h-[400px]",
           // transitions for non-mobile screens
@@ -30,12 +41,13 @@ const ProjectTile = ({
         onClick={() => setOpen(true)}
       >
         <Image
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover object-center rounded-xl"
           src={bgImage}
           alt={title}
         />
         <div
           className={[
+            "rounded-xl",
             "absolute inset-0 flex flex-col justify-end p-10 text-white bg-black/50",
             // transitions for non-mobile screens
             "sm:opacity-0 sm:group-hover:opacity-100 sm:transition-all sm:duration-300",
@@ -43,10 +55,15 @@ const ProjectTile = ({
         >
           <h1 className="text-3xl">{title}</h1>
           <p className="text-sm">{description}</p>
+          <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide">
+            View details
+            <span aria-hidden>→</span>
+          </span>
+          <span className="sr-only">Open detailed project entry</span>
         </div>
-      </div>
+      </button>
 
-      <Modal open={open} onClose={() => setOpen(false)} title={title}>
+      <Modal open={open} onClose={handleClose} title={title}>
         <p className="text-sm">{description}</p>
         <div className="flex gap-2 mt-4">
           {links?.map(({ label, href, target }) => (

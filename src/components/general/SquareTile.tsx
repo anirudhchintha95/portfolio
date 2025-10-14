@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, useMemo, useState } from "react";
+import React, { ReactNode, useMemo, useRef, useState } from "react";
 
 import Modal from "./Modal";
 import HoverGlowCard from "./HoverGlow";
@@ -26,7 +26,6 @@ export default function SquareTile({
   modalActions,
 
   variant,
-  mobileOnlyModal,
   modalClassName,
   modalContentClassName,
   modalContent,
@@ -34,23 +33,31 @@ export default function SquareTile({
   modalClassName?: string;
   modalContentClassName?: string;
   variant?: "normal" | "small";
-  mobileOnlyModal?: boolean;
   modalContent?: () => ReactNode;
 }) {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const handleClose = () => {
+    setOpen(false);
+    queueMicrotask(() => triggerRef.current?.focus());
+  };
 
   const isSmallVariant = useMemo(() => variant === "small", [variant]);
 
   const handleClick = () => {
-    if (!mobileOnlyModal || window.innerWidth < 640) {
-      setOpen(true);
-    }
+    setOpen(true);
   };
 
   return (
     <>
       {/* TILE */}
-      <div
+      <button
+        ref={triggerRef}
+        type="button"
+        aria-haspopup="dialog"
+        aria-expanded={open}
+        aria-label={`Open details for ${title}`}
         onClick={handleClick}
         className={[
           isSmallVariant ? "w-[4rem] sm:w-[8rem]" : "w-[7rem] sm:w-[12rem]",
@@ -119,11 +126,11 @@ export default function SquareTile({
             )}
           </div>
         </HoverGlowCard>
-      </div>
+      </button>
 
       <Modal
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={handleClose}
         title={title}
         icon={icon}
         modalClassName={modalClassName}

@@ -105,13 +105,7 @@ export default function Skills() {
     <section aria-label="Skills">
       <div className="flex justify-center gap-6 sm:gap-8 flex-wrap">
         {SKILLS.map(({ title, icon }) => (
-          <SquareTile
-            key={title}
-            title={title}
-            icon={icon}
-            mobileOnlyModal={true}
-            variant="small"
-          />
+          <SquareTile key={title} title={title} icon={icon} variant="small" />
         ))}
       </div>
     </section>

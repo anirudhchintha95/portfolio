@@ -16,7 +16,7 @@ const Separator = ({
     <section className="py-8 font-pixel">
       {/* Mobile: stacked */}
       <div className="sm:hidden space-y-3">
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-600 m-0" />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-amber-600 m-0" />
         <a
           className="flex flex-col items-center gap-1 px-4 text-center text-2xl my-2"
           href={"#" + hrefKey}
@@ -27,7 +27,7 @@ const Separator = ({
             </span>
           ))}
         </a>
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-600 m-0" />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-amber-600 m-0" />
       </div>
 
       {/* sm+: horizontal */}

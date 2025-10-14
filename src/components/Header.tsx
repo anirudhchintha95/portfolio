@@ -47,11 +47,11 @@ const Header = () => {
 
           <div className="sm:flex sm:items-center">
             <nav aria-label="Global" className="hidden sm:block">
-              <ul className="flex items-center gap-6 text-sm">
+              <ul className="flex items-center gap-4 text-sm">
                 {NAV_ITEMS.map(({ label, href }) => (
                   <li key={label}>
                     <a
-                      className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                      className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75 hover:underline underline-offset-4"
                       href={href}
                     >
                       {label}
