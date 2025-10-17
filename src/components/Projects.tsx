@@ -10,7 +10,7 @@ import Modal, { ModalAction } from "./general/Modal";
 import Button from "./general/Button";
 
 const ProjectTile = ({
-  project: { title, description, bgImage, links },
+  project: { title, description, bgImage, links, skills },
 }: {
   project: ProjectItem;
 }) => {
@@ -55,6 +55,27 @@ const ProjectTile = ({
         >
           <h1 className="text-3xl">{title}</h1>
           <p className="text-sm">{description}</p>
+          <div className="hidden sm:flex gap-2 mt-2">
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="rounded-full px-3 py-1 text-xs font-medium bg-amber-700 text-white"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+          <div className="flex sm:hidden gap-2 mt-2 items-center">
+            {skills.slice(0, 2).map((skill) => (
+              <span
+                key={skill}
+                className="rounded-full px-3 py-1 text-xs font-medium bg-amber-700 text-white"
+              >
+                {skill}
+              </span>
+            ))}
+            {skills.length > 2 ? <span className="text-xs">+{skills.length - 2} more</span> : null}
+          </div>
           <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide">
             View details
             <span aria-hidden>→</span>
@@ -65,6 +86,16 @@ const ProjectTile = ({
 
       <Modal open={open} onClose={handleClose} title={title}>
         <p className="text-sm">{description}</p>
+        <div className="flex gap-2 mt-2 flex-wrap">
+          {skills.map((skill) => (
+            <span
+              key={skill}
+              className="rounded-full px-3 py-1 text-xs font-medium bg-amber-700 text-white"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
         <div className="flex gap-2 mt-4">
           {links?.map(({ label, href, target }) => (
             <Button
@@ -87,6 +118,7 @@ interface ProjectItem {
   description: string;
   bgImage: StaticImageData;
   links?: ModalAction[];
+  skills: string[];
 }
 
 const projectList: ProjectItem[] = [
@@ -95,6 +127,7 @@ const projectList: ProjectItem[] = [
     bgImage: RTSLogo,
     description:
       "A practical alternative for ad-hoc Context when Context + reducers feel heavy and you want fewer unnecessary re-renders built on useSyncExternalStore.",
+    skills: ["React", "useContext", "useSyncExternalStore"],
     links: [
       {
         label: "Github",
@@ -118,6 +151,7 @@ const projectList: ProjectItem[] = [
     bgImage: ACLogo,
     description:
       "The website you are visiting right now. Built on NextJS, TailwindCSS and integrated with an AI-powered Q&A feature using OpenAI APIs",
+    skills: ["NextJS", "React", "TailwindCSS", "OpenAI"],
     links: [
       {
         label: "Github",
@@ -131,6 +165,7 @@ const projectList: ProjectItem[] = [
     description:
       "An application that helps you easily find like-minded individuals who are looking for a shared living space. Built on React, NodeJS and MongoDB.",
     bgImage: HomieLogo,
+    skills: ["React", "NodeJS", "Express", "MongoDB", "Material UI"],
     links: [
       {
         label: "Github",
