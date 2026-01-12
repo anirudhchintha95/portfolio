@@ -84,8 +84,8 @@ experience:
     location: "Holmdel, NJ"
     internship:
       period: "5 Jun 2023 - 17 May 2024"
-    period: "from 24 Jun 2024"
-    technologies: [Angular, NodeJS, TypeScript, Jenkins, Redis, PostgreSQL, AWS]
+    period: "24 Jun 2024 - 15 December 2025"
+    technologies: [Angular, NodeJS, TypeScript, Jenkins, Redis, AWS]
     highlights:
       - "Separated frontend and backend monorepo into individual Jenkins pipelines, reducing frontend deploy time by 30%."
       - "Upgraded Angular from v15 to v18 introducing Signals for state management and improved reactivity."
