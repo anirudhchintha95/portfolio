@@ -1,10 +1,14 @@
 # Anirudh Chintha – Career Portfolio
 
-A personal hub for my story, skills, and impact. It pairs a polished Next.js + Tailwind experience with an OpenAI “Ask AI” that answers directly from my resume, so you can ask about roles, tech, and projects and get grounded responses.
+A personal hub for my story, skills, and impact. Built with Next.js + Tailwind, and includes an “Ask AI” feature that answers questions grounded in my resume and projects (resume-only constraints).
 
-- About & Skills: who I am and the tools I use.
-- Work History & Projects: highlights of shipped work and outcomes.
-- Recommendations: what teammates and stakeholders say.
-- Ask AI: resume-backed Q&A via the OpenAI Responses API (gpt-4.1-mini).
+## What’s inside
+- About & Skills: who I am and the tools I use
+- Work History & Projects: highlights of shipped work and outcomes
+- Recommendations: feedback from teammates and stakeholders
+- Ask AI: resume-backed Q&A via the OpenAI Responses API (gpt-4.1-mini)
 
-Explore it live: [anirudhchintha.dev](https://anirudhchintha.dev)
+Live: https://anirudhchintha.dev
+
+## Tech stack
+Next.js, Tailwind CSS, OpenAI Responses API
